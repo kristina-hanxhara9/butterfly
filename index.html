@@ -1,0 +1,2558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transform your business with AI solutions that increase revenue, save time, and deliver exceptional customer experiences. Expert implementation for forward-thinking businesses.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://transformaisolutions.com/">
+    
+    <!-- Add Open Graph tags for social sharing -->
+    <meta property="og:title" content="Butterfly AI Solutions | AI Business Transformation">
+    <meta property="og:description" content="AI implementation that transforms businesses from caterpillar to butterfly with intelligent automation and revenue growth solutions.">
+    <meta property="og:image" content="https://transformaisolutions.com/images/transform-ai-butterfly-logo.jpg">
+    <meta property="og:url" content="https://transformaisolutions.com/">
+    <meta property="og:type" content="website">
+    
+    <!-- SEO Keywords -->
+    <meta name="keywords" content="AI consulting, AI solutions for business, machine learning for small business, chatbot, appointment booking system">
+    
+    <!-- Add Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TransformAI">
+    <meta name="twitter:description" content="AI solutions that transform businesses with more revenue and less work.">
+    <meta name="twitter:image" content="https://transformaisolutions.com/images/transform-ai-butterfly-logo.jpg">
+    
+    <title>Butterfly AI Solutions</title>
+    
+    <!-- Enhanced Fonts - Added Fraunces for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700;800&display=swap');
+        
+        /* 1. Color Harmony Refinement */
+        :root {
+            --primary: #5e46e8;    /* Slightly toned down purple */
+            --secondary: #46cde8;  /* More muted teal */
+            --accent: #e8654b;     /* Adjusted to a coral that harmonizes better */
+            --dark: #1f2545;       /* Slightly warmer dark blue */
+            --light: #f9faff;      /* Kept similar */
+            
+            /* 2. Typography Enhancement */
+            --heading-font: 'Fraunces', serif;
+            --body-font: 'Space Grotesk', sans-serif;
+            
+            --gradient-purple: linear-gradient(135deg, var(--primary), var(--secondary));
+            --gradient-orange: linear-gradient(135deg, var(--accent), #f89e7b);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+            font-family: var(--body-font);
+            position: relative;
+        }
+        
+        /* 3. Visual Storytelling - Butterfly Patterns */
+        .butterfly-patterns {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .butterfly {
+            position: absolute;
+            color: var(--primary);
+            opacity: 0.15;
+        }
+        
+        .butterfly-1 {
+            top: 15%;
+            left: 10%;
+            animation: float 7s ease-in-out infinite;
+        }
+        
+        .butterfly-2 {
+            top: 60%;
+            right: 15%;
+            color: var(--secondary);
+            animation: float 9s ease-in-out infinite 1s;
+        }
+        
+        .butterfly-3 {
+            bottom: 10%;
+            left: 40%;
+            color: var(--accent);
+            animation: float 8s ease-in-out infinite 2s;
+        }
+        
+        /* 4. White Space & Breathing Room */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+        }
+        
+        .section {
+            padding: 6rem 0;  /* Increased from 4rem */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-transition {
+            position: relative;
+            height: 120px;
+            width: 100%;
+            margin-top: -60px;
+            margin-bottom: -60px;
+            z-index: 1;
+        }
+        
+        .section-transition svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .section-butterfly {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            color: var(--primary);
+            opacity: 0.2;
+            animation: pulse 3s infinite;
+        }
+        
+        .backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.08;  /* Slightly reduced opacity */
+            background-image: 
+                radial-gradient(circle at 25% 25%, var(--primary) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, var(--accent) 0%, transparent 50%);
+        }
+        
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(249, 250, 255, 0.9); /* Updated to match new --light */
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.75rem 2.5rem; /* Increased padding */
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem; /* Increased from 1rem */
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-image: url('./images/bg-removed.webp'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+}
+        
+    
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+        
+        .nav-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--dark);
+            position: absolute;
+            transition: var(--transition);
+        }
+        
+        .nav-toggle span:nth-child(1) {
+            top: 8px;
+        }
+        
+        .nav-toggle span:nth-child(2) {
+            top: 14px;
+        }
+        
+        .nav-toggle span:nth-child(3) {
+            top: 20px;
+        }
+        
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 14px;
+        }
+        
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 14px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 3rem; /* Increased from 2.5rem */
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            position: relative;
+            padding: 0.6rem 0; /* Increased slightly */
+            transition: var(--transition);
+            font-size: 1.05rem; /* Slightly increased */
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-purple);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* 6. Enhanced Interactive Elements */
+        .cta-btn {
+            display: inline-block;
+            padding: 0.85rem 1.75rem; /* Increased padding */
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: var(--transition);
+            background: var(--gradient-orange);
+            color: white;
+            box-shadow: 0 4px 15px rgba(232, 101, 75, 0.25); /* Enhanced shadow */
+        }
+        
+        .cta-btn:hover {
+            box-shadow: 0 8px 20px rgba(232, 101, 75, 0.35); /* Enhanced hover shadow */
+            transform: translateY(-3px); /* Increased from -2px */
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding-top: 12rem; /* Increased from 10rem */
+            padding-bottom: 6rem; /* Added explicit bottom padding */
+            min-height: 92vh; /* Increased from 90vh */
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .organic-shape {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.06; /* Reduced opacity slightly */
+        }
+        
+        .shape-top {
+            top: 0;
+            right: 0;
+            width: 120%; /* Increased from 100% */
+            height: 450px; /* Increased from 400px */
+            background: var(--gradient-orange);
+            border-radius: 0 0 0 100%;
+            transform: translate(20%, -50%);
+        }
+        
+        .shape-bottom {
+            bottom: 0;
+            left: 0;
+            width: 120%; /* Increased from 100% */
+            height: 350px; /* Increased from 300px */
+            background: var(--gradient-purple);
+            border-radius: 0 100% 0 0;
+            transform: translate(-30%, 50%);
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem; /* Increased from 4rem */
+            align-items: center;
+        }
+        
+        /* 2. Typography Enhancements */
+        .hero-content h1 {
+            font-family: var(--heading-font);
+            font-size: 3.75rem; /* Increased from 3.5rem */
+            line-height: 1.1; /* Tightened from 1.2 */
+            margin-bottom: 1.75rem; /* Increased from 1.5rem */
+            color: var(--dark);
+            font-weight: 700; /* Increased from 600 */
+            letter-spacing: -0.02em;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUpIn 1s forwards 0.3s;
+        }
+        
+        .hero-content h1 span {
+            background: var(--gradient-orange);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem; /* Increased from 1.2rem */
+            line-height: 1.6;
+            margin-bottom: 2.5rem; /* Increased from 2rem */
+            color: rgba(31, 37, 69, 0.8); /* Updated to new dark color with opacity */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUpIn 1s forwards 0.5s;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1.1rem 2.2rem; /* Increased padding */
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem; /* Increased from 1rem */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUpIn 1s forwards 0.7s;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-purple);
+            color: white;
+            box-shadow: 0 4px 15px rgba(94, 70, 232, 0.25); /* Enhanced shadow */
+        }
+        
+        .btn-primary:hover {
+            box-shadow: 0 8px 20px rgba(94, 70, 232, 0.35); /* Enhanced hover shadow */
+            transform: translateY(-3px);
+        }
+        
+        .btn-secondary {
+            background: var(--gradient-orange);
+            color: white;
+            box-shadow: 0 4px 15px rgba(232, 101, 75, 0.25); /* Enhanced shadow */
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 8px 20px rgba(232, 101, 75, 0.35); /* Enhanced hover shadow */
+            transform: translateY(-3px);
+        }
+        
+        .hero-image {
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUpIn 1s forwards 0.9s;
+        }
+        
+        .transform-illustration {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15)); /* Enhanced shadow */
+            transition: var(--transition);
+        }
+        
+        /* 6. Interactive elements - image hover effect */
+        .hero-image:hover .transform-illustration {
+            transform: translateY(-5px);
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .floating-shape {
+            position: absolute;
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+        
+        .floating-shape:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            width: 18px; /* Increased from 15px */
+            height: 18px; /* Increased from 15px */
+            border-radius: 50%;
+            background: var(--accent);
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .floating-shape:nth-child(2) {
+            top: 50%;
+            right: 15%;
+            width: 24px; /* Increased from 20px */
+            height: 24px; /* Increased from 20px */
+            background: var(--primary);
+            border-radius: 4px;
+            animation: float 6s ease-in-out infinite 1s;
+        }
+        
+        .floating-shape:nth-child(3) {
+            bottom: 15%;
+            left: 35%;
+            width: 35px; /* Increased from 30px */
+            height: 10px; /* Increased from 8px */
+            background: var(--secondary);
+            border-radius: 4px;
+            animation: float 5s ease-in-out infinite 0.5s;
+        }
+        
+        .floating-shape:nth-child(4) {
+            top: 30%;
+            right: 25%;
+            width: 12px; /* Increased from 10px */
+            height: 30px; /* Increased from 25px */
+            background: var(--accent);
+            border-radius: 4px;
+            animation: float 7s ease-in-out infinite 1.5s;
+        }
+        
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 10rem 0; /* Increased from 8rem */
+            position: relative;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem; /* Increased from 4rem */
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 20px; /* Increased from 16px */
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); /* Enhanced shadow */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+        
+        .about-image.in-view {
+            animation: fadeUpIn 1s forwards;
+        }
+        
+        /* 6. Interactive Elements - image hover */
+        .about-image:hover img {
+            transform: scale(1.03);
+            filter: brightness(1.05);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+        
+        .about-content {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .about-content.in-view {
+            animation: fadeUpIn 1s forwards 0.2s;
+        }
+        
+        /* 2. Typography Enhancement */
+        .about-content h2 {
+            font-family: var(--heading-font);
+            font-size: 2.75rem; /* Increased from 2.5rem */
+            line-height: 1.2;
+            margin-bottom: 1.75rem; /* Increased from 1.5rem */
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+        
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -12px; /* Adjusted from -10px */
+            width: 90px; /* Increased from 80px */
+            height: 4px;
+            background: var(--gradient-orange);
+            border-radius: 2px;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.75rem; /* Increased from 1.5rem */
+            color: rgba(31, 37, 69, 0.75); /* Updated with new dark color */
+            font-size: 1.1rem; /* Slightly increased */
+            line-height: 1.7; /* Increased slightly */
+        }
+        
+        .about-features {
+            list-style: none;
+            margin: 2.5rem 0; /* Increased from 2rem */
+        }
+        
+        .about-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.25rem; /* Increased from 1rem */
+        }
+        
+        .about-features li i {
+            width: 28px; /* Increased from 24px */
+            height: 28px; /* Increased from 24px */
+            border-radius: 50%;
+            background: var(--gradient-purple);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.25rem; /* Increased from 1rem */
+            flex-shrink: 0;
+        }
+        
+        .about-features li span {
+            color: rgba(31, 37, 69, 0.8); /* Updated with new dark color */
+            font-size: 1.05rem; /* Slightly increased */
+        }
+        
+        /* ===== JOURNEY SECTION ===== */
+        .journey {
+            padding: 10rem 0; /* Increased from 8rem */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem; /* Increased from 4rem */
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* 2. Typography Enhancement */
+        .section-title h2 {
+            font-family: var(--heading-font);
+            font-size: 2.75rem; /* Increased from 2.5rem */
+            line-height: 1.2;
+            margin-bottom: 1.25rem; /* Increased from 1rem */
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .section-title p {
+            font-size: 1.3rem; /* Increased from 1.2rem */
+            max-width: 650px; /* Increased from 600px */
+            margin: 0 auto;
+            color: rgba(31, 37, 69, 0.75); /* Updated with new dark color */
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .section-title.in-view h2 {
+            animation: fadeUpIn 1s forwards;
+        }
+        
+        .section-title.in-view p {
+            animation: fadeUpIn 1s forwards 0.2s;
+        }
+        
+        /* 8. Horizontal Journey Layout */
+        .transformation-journey {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px; /* Increased from 900px */
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 1.5rem; /* Gap between journey stages */
+        }
+        
+        .journey-stage-card {
+            background: white;
+            border-radius: 20px; /* Increased from 16px */
+            padding: 2.5rem; /* Increased from 2rem */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05); /* Enhanced shadow */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+        
+        /* 6. Interactive Elements - journey card hover */
+        .journey-stage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+        
+        .journey-stage-card:nth-child(1) {
+            animation: fadeUpIn 1s forwards;
+        }
+        
+        .journey-stage-card:nth-child(2) {
+            animation: fadeUpIn 1s forwards 0.2s;
+        }
+        
+        .journey-stage-card:nth-child(3) {
+            animation: fadeUpIn 1s forwards 0.4s;
+        }
+        
+        /* 3. Visual Storytelling - Journey Stage Icons */
+        .stage-icon {
+            width: 100px; /* Increased from 80px */
+            height: 100px; /* Increased from 80px */
+            border-radius: 20px; /* Increased from 16px */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.75rem; /* Increased from 1.5rem */
+            flex-shrink: 0;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .stage-icon.blue {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        .stage-icon.orange {
+            background: linear-gradient(135deg, var(--accent), #f89e7b);
+        }
+        
+        .stage-icon.purple {
+            background: linear-gradient(135deg, var(--primary), var(--secondary) 50%, var(--accent));
+        }
+        
+        /* Journey stage hover effect - icon scaling */
+        .journey-stage-card:hover .stage-icon {
+            transform: scale(1.08);
+        }
+        
+        .stage-content {
+            flex: 1;
+        }
+        
+        /* 2. Typography Enhancement */
+        .stage-content h3 {
+            font-family: var(--heading-font);
+            font-size: 1.6rem; /* Increased from 1.4rem */
+            line-height: 1.2;
+            margin-bottom: 0.35rem; /* Increased from 0.25rem */
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .stage-content h4 {
+            font-size: 1rem; /* Slightly reduced from 1.1rem */
+            margin-bottom: 1.25rem; /* Increased from 1rem */
+            color: rgba(31, 37, 69, 0.8); /* Updated with new dark color */
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .stage-content p {
+            color: rgba(31, 37, 69, 0.75); /* Updated with new dark color */
+            font-size: 1.05rem; /* Added size */
+        }
+        
+        /* Horizontal Journey Connectors */
+        .horizontal-connector {
+            position: absolute;
+            top: 50px; /* Align with stage icon center */
+            width: 80px;
+            height: 2px;
+            background: rgba(94, 70, 232, 0.2); /* Using primary color with opacity */
+            z-index: 1;
+        }
+        
+        .connector-1-2 {
+            left: calc(33.33% - 40px);
+        }
+        
+        .connector-2-3 {
+            left: calc(66.66% - 40px);
+        }
+        
+        /* Journey numbers */
+        .stage-number {
+            position: absolute;
+            top: 0;
+            left: 2.5rem;
+            font-family: var(--heading-font);
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: rgba(94, 70, 232, 0.08); /* Primary color with opacity */
+            line-height: 1;
+        }
+        
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 10rem 0; /* Increased from 8rem */
+            background: rgba(249, 250, 255, 0.6); /* Updated to new --light color with opacity */
+            position: relative;
+        }
+        
+        .services-tabs {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .services-tab-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2.5rem; /* Increased from 2rem */
+            border-bottom: 1px solid rgba(31, 37, 69, 0.1); /* Updated with new dark color */
+        }
+        
+        .tab-item {
+            flex: 1;
+            text-align: center;
+            padding: 1.25rem 1rem; /* Increased vertical padding */
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUpIn 1s forwards;
+        }
+        
+        .tab-item:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        
+        .tab-item:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+        
+        .tab-item:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+        
+        .tab-item.active {
+            color: var(--primary);
+        }
+        
+        .tab-item.active:first-child {
+            color: var(--accent);
+        }
+        
+        /* 6. Interactive Elements - tab indicator */
+        .tab-item:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: transparent;
+            transition: var(--transition);
+        }
+        
+        .tab-item.active:after {
+            background: var(--gradient-purple);
+        }
+        
+        .tab-item.active:first-child:after {
+            background: var(--gradient-orange);
+        }
+        
+        .tab-icon {
+            width: 60px; /* Increased from 50px */
+            height: 60px; /* Increased from 50px */
+            border-radius: 12px; /* Increased from 10px */
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem; /* Increased from 0.75rem */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07); /* Enhanced shadow */
+            color: var(--dark);
+            transition: var(--transition);
+        }
+        
+        .tab-item:hover .tab-icon {
+            transform: translateY(-8px); /* Increased from -5px */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12); /* Enhanced hover shadow */
+        }
+        
+        .tab-item.active .tab-icon {
+            background: var(--gradient-purple);
+            color: white;
+        }
+        
+        .tab-item.active:first-child .tab-icon {
+            background: var(--gradient-orange);
+        }
+        
+        .tab-item span {
+            font-weight: 600; /* Increased from 500 */
+            font-size: 1.05rem; /* Added size */
+        }
+        
+        .services-tab-content {
+            background: white;
+            border-radius: 20px; /* Increased from 16px */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06); /* Enhanced shadow */
+            overflow: hidden;
+            min-height: 350px; /* Increased from 300px */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUpIn 1s forwards 0.4s;
+        }
+        
+        .tab-pane {
+            display: none;
+            padding: 2.5rem; /* Increased from 2rem */
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
+        
+        .service-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem; /* Increased from 2rem */
+            align-items: center;
+        }
+        
+        /* 2. Typography Enhancement */
+        .service-info h3 {
+            font-family: var(--heading-font);
+            font-size: 2rem; /* Increased from 1.8rem */
+            line-height: 1.2;
+            margin-bottom: 1.25rem; /* Increased from 1rem */
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .service-description {
+            font-size: 1.2rem; /* Increased from 1.1rem */
+            color: rgba(31, 37, 69, 0.75); /* Updated with new dark color */
+            margin-bottom: 1.75rem; /* Increased from 1.5rem */
+            line-height: 1.7; /* Added line height */
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-bottom: 2.5rem; /* Increased from 2rem */
+        }
+        
+        .service-features li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.25rem; /* Increased from 1rem */
+        }
+        
+        .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px; /* Increased from 24px */
+            height: 28px; /* Increased from 24px */
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            margin-right: 1.25rem; /* Increased from 1rem */
+            flex-shrink: 0;
+        }
+        
+        #chatbots .feature-icon {
+            background: var(--accent);
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px; /* Increased from 12px */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); /* Enhanced shadow */
+            transition: var(--transition);
+        }
+        
+        /* 6. Interactive Elements - service image hover */
+        .service-image:hover img {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 10rem 0; /* Increased from 8rem */
+            position: relative;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 5rem; /* Increased from 4rem */
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-form {
+            background: linear-gradient(135deg, white 0%, rgba(232, 101, 75, 0.07) 100%); /* Updated gradient with new accent color */
+            border-radius: 20px; /* Increased from 16px */
+            padding: 3.5rem; /* Increased from 3rem */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.07); /* Enhanced shadow */
+            opacity: 0;
+            transform: translateY(30px);
+            border-top: 5px solid var(--accent);
+        }
+        
+        .contact-form.in-view {
+            animation: fadeUpIn 1s forwards;
+        }
+        
+        .form-group {
+            margin-bottom: 1.75rem; /* Increased from 1.5rem */
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem; /* Increased from 0.5rem */
+            font-weight: 600; /* Increased from 500 */
+            color: var(--dark);
+            font-size: 1.05rem; /* Added size */
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.25rem; /* Increased from 0.8rem 1rem */
+            border: 2px solid rgba(31, 37, 69, 0.1); /* Updated with new dark color */
+            border-radius: 12px; /* Increased from 8px */
+            font-size: 1.05rem; /* Increased from 1rem */
+            transition: var(--transition);
+            background: rgba(249, 250, 255, 0.5); /* Updated to new --light color */
+        }
+        
+        /* 6. Interactive Elements - form focus effect */
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(232, 101, 75, 0.15); /* Enhanced focus shadow, updated color */
+            transform: translateY(-2px);
+        }
+        
+        textarea.form-control {
+            min-height: 140px; /* Increased from 120px */
+            resize: vertical;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem; /* Increased from 2rem */
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .contact-info.in-view {
+            animation: fadeUpIn 1s forwards 0.2s;
+        }
+        
+        /* 2. Typography Enhancement */
+        .contact-info h3 {
+            font-family: var(--heading-font);
+            font-size: 2.25rem; /* Increased from 2rem */
+            line-height: 1.2;
+            margin-bottom: 1.25rem; /* Increased from 1rem */
+            font-weight: 600;
+        }
+        
+        .contact-info p {
+            color: rgba(31, 37, 69, 0.75); /* Updated with new dark color */
+            margin-bottom: 2.5rem; /* Increased from 2rem */
+            font-size: 1.1rem; /* Added size */
+            line-height: 1.7; /* Added line height */
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem; /* Increased from 1.5rem */
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem; /* Increased from 1rem */
+        }
+        
+        .contact-icon {
+            width: 48px; /* Increased from 40px */
+            height: 48px; /* Increased from 40px */
+            border-radius: 12px; /* Increased from 10px */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light);
+            color: var(--primary);
+            box-shadow: 0 5px 15px rgba(94, 70, 232, 0.12); /* Added shadow with primary color */
+            transition: var(--transition);
+        }
+        
+        /* 6. Interactive Elements - contact icon hover */
+        .contact-item:hover .contact-icon {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(94, 70, 232, 0.18);
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.2rem; /* Increased from 1.1rem */
+            margin-bottom: 0.35rem; /* Increased from 0.25rem */
+            font-weight: 600;
+        }
+        
+        .contact-text p {
+            margin: 0;
+            color: rgba(31, 37, 69, 0.75); /* Updated with new dark color */
+            font-size: 1.05rem; /* Added size */
+        }
+        
+        .social-contact {
+            margin-top: 2rem; /* Increased from 1.5rem */
+        }
+        
+        .social-contact h4 {
+            font-size: 1.2rem; /* Increased from 1.1rem */
+            margin-bottom: 1.25rem; /* Increased from 1rem */
+            font-weight: 600;
+        }
+        
+        .social-contact .social-links {
+            display: flex;
+            gap: 1.25rem; /* Increased from 1rem */
+        }
+        
+        .social-contact .social-link {
+            width: 48px; /* Increased from 40px */
+            height: 48px; /* Increased from 40px */
+            border-radius: 12px; /* Increased from 10px */
+            background: var(--gradient-orange);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-contact .social-link:hover {
+            transform: translateY(-5px) rotate(10deg); /* Added rotation to hover */
+            box-shadow: 0 8px 20px rgba(232, 101, 75, 0.25); /* Enhanced shadow with new accent color */
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 5rem 0 2rem; /* Increased top padding from 4rem */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem; /* Increased from 2rem */
+            margin-bottom: 4rem; /* Increased from 3rem */
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem; /* Increased from 1rem */
+            margin-bottom: 1.75rem; /* Increased from 1.5rem */
+        }
+        
+        .footer-logo-icon {
+            width: 48px; /* Increased from 40px */
+            height: 48px; /* Increased from 40px */
+            border-radius: 12px;
+    background-image: url('./images/bg-removed.webp'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+        }
+        
+        .footer-logo-text {
+            font-size: 1.4rem; /* Increased from 1.2rem */
+            font-weight: 600;
+            color: white;
+            font-family: var(--heading-font);
+        }
+        
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.75rem; /* Increased from 1.5rem */
+            line-height: 1.7; /* Increased line height */
+            font-size: 1.05rem; /* Added size */
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.25rem; /* Increased from 1rem */
+        }
+        
+        .social-link {
+            width: 42px; /* Increased from 36px */
+            height: 42px; /* Increased from 36px */
+            border-radius: 10px; /* Increased from 8px */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        /* 6. Interactive Elements - social link hover */
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px) rotate(10deg); /* Added rotation */
+            box-shadow: 0 5px 15px rgba(94, 70, 232, 0.3); /* Added shadow */
+        }
+        
+        .footer-title {
+            font-family: var(--heading-font);
+            font-size: 1.25rem; /* Increased from 1.1rem */
+            margin-bottom: 1.75rem; /* Increased from 1.5rem */
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px; /* Adjusted from -8px */
+            left: 0;
+            width: 35px; /* Increased from 30px */
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1rem; /* Increased from 0.8rem */
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            padding-left: 18px; /* Increased from 15px */
+            font-size: 1.05rem; /* Added size */
+        }
+        
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px; /* Increased from 6px */
+            height: 8px; /* Increased from 6px */
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.5;
+            transition: var(--transition);
+        }
+        
+        /* 6. Interactive Elements - footer link hover */
+        .footer-links a:hover {
+            color: white;
+            padding-left: 25px; /* Increased from 20px */
+        }
+        
+        .footer-links a:hover::before {
+            opacity: 1;
+            width: 10px; /* Added width increase on hover */
+            height: 10px; /* Added height increase on hover */
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: 1.75rem; /* Increased from 1.5rem */
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.25rem; /* Increased from 0.8rem 1rem */
+            border: none;
+            border-radius: 12px 0 0 12px; /* Increased from 8px */
+            font-size: 1rem; /* Increased from 0.9rem */
+        }
+        
+        .newsletter-form button {
+            padding: 0 1.75rem; /* Increased from 1.5rem */
+            background: var(--gradient-orange);
+            color: white;
+            border: none;
+            border-radius: 0 12px 12px 0; /* Increased from 8px */
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .newsletter-form button:hover {
+            opacity: 0.9;
+            box-shadow: 0 5px 15px rgba(232, 101, 75, 0.3); /* Added shadow */
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2.5rem; /* Increased from 2rem */
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.05rem; /* Added size */
+        }
+        
+        /* ===== CLIENTS SECTION ===== */
+        .clients {
+            padding: 5rem 0; /* Increased from 4rem */
+            background: rgba(249, 250, 255, 0.6); /* Updated to new --light color with opacity */
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2.5rem; /* Increased from 2rem */
+            align-items: center;
+        }
+        
+        .client-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90px; /* Increased from 80px */
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+        
+        /* 6. Interactive Elements - client logo hover */
+        .client-logo:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+        
+        .client-logo img {
+            max-width: 100%;
+            max-height: 60px; /* Increased from 50px */
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+        
+        .client-logo:hover img {
+            filter: grayscale(0%);
+        }
+        
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-top {
+            position: fixed;
+            right: 25px; /* Increased from 20px */
+            bottom: 25px; /* Increased from 20px */
+            width: 50px; /* Increased from 40px */
+            height: 50px; /* Increased from 40px */
+            border-radius: 50%;
+            background: var(--gradient-orange);
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* 6. Interactive Elements - scroll to top hover */
+        .scroll-top:hover {
+            transform: translateY(-8px) scale(1.1); /* Increased and added scale */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Enhanced hover shadow */
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUpIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(1.1);
+            }
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2, 
+            .about-content h2 {
+                font-size: 2.4rem;
+            }
+            
+            .transformation-journey {
+                max-width: 90%;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            /* 7. Mobile Experience Optimization */
+            .container {
+                padding: 0 2rem;
+            }
+            
+            .section {
+                padding: 5rem 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem 2rem;
+            }
+            
+            .service-content-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            
+            .service-image {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .clients-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            /* Horizontal Journey Becomes Vertical on Tablet */
+            .transformation-journey {
+                flex-direction: column;
+                gap: 2.5rem;
+            }
+            
+            .horizontal-connector {
+                display: none;
+            }
+            
+            /* Add vertical connectors for tablet view */
+            .vertical-connector {
+                height: 50px;
+                width: 2px;
+                background: rgba(94, 70, 232, 0.2);
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* 7. Mobile Experience Optimization */
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 85px;
+                left: 0;
+                width: 100%;
+                background: var(--light);
+                padding: 1rem 2rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: var(--transition);
+            }
+            
+            nav.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.5rem 0;
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .hero-image {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-image {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .journey-stage-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .stage-icon {
+                margin: 0 auto 1.5rem;
+            }
+            
+            .services-tab-header {
+                flex-wrap: wrap;
+            }
+            
+            .tab-item {
+                flex: 0 0 50%;
+                padding: 1.25rem 0.5rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            
+            .contact-info {
+                order: -1;
+            }
+            
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            /* 7. Mobile Experience Optimization */
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .hero {
+                padding-top: 8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .about-content h2 {
+                font-size: 2rem;
+            }
+            
+            .tab-item {
+                flex: 0 0 100%;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+            
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn, .cta-btn {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .header-container {
+                padding: 1.5rem;
+            }
+            
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 3. Visual Storytelling - Butterfly Patterns -->
+    <div class="butterfly-patterns">
+        <div class="butterfly butterfly-1">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor"></path>
+            </svg>
+        </div>
+        <div class="butterfly butterfly-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor"></path>
+            </svg>
+        </div>
+        <div class="butterfly butterfly-3">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"></div>
+                <div class="logo-text">Butterfly AI</div>
+            </a>
+            
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav id="nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#journey">Journey</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="https://chatbot-njg2.onrender.com/booking.html" target="_blank" class="cta-btn">Book a free consultation</a>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="organic-shape shape-top"></div>
+        <div class="organic-shape shape-bottom"></div>
+        
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Building Custom <span>AI Solutions</span> For Your Business</h1>
+                    <p>We don't just implement AI—we transform businesses into their most powerful, efficient, and profitable versions. Like a caterpillar to a butterfly, your business is ready to evolve.</p>
+                    <a href="https://customer-chatbot-3af0.onrender.com/" target="_blank" class="btn btn-secondary">Customise your AI Chatbot for free</a>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="./images/small-business.png" alt="AI Transformation" class="transform-illustration">
+                    <div class="floating-shapes">
+                        <div class="floating-shape"></div>
+                        <div class="floating-shape"></div>
+                        <div class="floating-shape"></div>
+                        <div class="floating-shape"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Transition -->
+    <div class="section-transition">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,0 C480,120 960,0 1440,80 L1440,120 L0,120 Z" fill="var(--primary)" opacity="0.1"></path>
+            <path d="M0,80 C480,40 960,120 1440,60 L1440,120 L0,120 Z" fill="var(--secondary)" opacity="0.1"></path>
+        </svg>
+        <div class="section-butterfly">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor"></path>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- About Section 
+    <section id="about" class="about section">
+        <div class="backdrop"></div>
+        
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>We Build Custom AI Solutions to Transform Your Business</h2>
+                    <p>In today's landscape, businesses face a choice: evolve with AI or be left behind. At Transform AI Solutions, we guide you through this metamorphosis—not by selling complicated technology, but by delivering the freedom, growth, and customer experiences you've always envisioned.</p>
+                    <p>Our solutions aren't about the AI—they're about what AI unlocks for you: more sales without more hours, deeper customer connections without larger teams, and the freedom to focus on what truly matters in your business and life.</p>
+                    
+                    <p class="fst-italic">We strip away the technical complexity and deliver AI solutions that:</p>
+                    <ul class="about-features">
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>We help you integrate AI solutions tailored to your unique needs.</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Solve real business problems.</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Scale with your business needs.</span>
+                        </li>
+                    </ul>
+                    <p>We're here to help you see real results.</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="Business Transformation">
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+    <!-- Section Transition -->
+    <div class="section-transition">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,0 C480,120 960,0 1440,80 L1440,120 L0,120 Z" fill="var(--primary)" opacity="0.1"></path>
+            <path d="M0,80 C480,40 960,120 1440,60 L1440,120 L0,120 Z" fill="var(--secondary)" opacity="0.1"></path>
+        </svg>
+        <div class="section-butterfly">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor"></path>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Journey Section - Horizontally Redesigned -->
+    <section class="journey section" id="journey">
+        <div class="backdrop"></div>
+        
+        <div class="container">
+            <div class="section-title">
+                <h2>Your Business Transformation Journey</h2>
+                <p>From constraints to freedom - experience the evolution of your business</p>
+            </div>
+            
+            <!-- 8. Horizontal Journey Layout -->
+            <div class="transformation-journey">
+                <!-- Journey Stage 1 -->
+                <div class="journey-stage-card">
+                    <div class="stage-number">1</div>
+                    <!-- 3. Visual Storytelling - Caterpillar Icon -->
+                    <div class="stage-icon blue">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8,6C9,6 10,5 12,5C14,5 15,6 16,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M8,10C9,10 10,9 12,9C14,9 15,10 16,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M8,14C9,14 10,13 12,13C14,13 15,14 16,14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M8,18C9,18 10,17 12,17C14,17 15,18 16,18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="stage-content">
+                        <h3>Stage 1: Caterpillar</h3>
+                        <h4>Where You Are Now</h4>
+                        <p>Running a good business, but feeling the constraints of time, resources, and scaling challenges. Customer interactions are manual, insights are limited, and growth requires more of your precious time.</p>
+                    </div>
+                </div>
+                
+                <!-- Horizontal Connector 1-2 -->
+                <div class="horizontal-connector connector-1-2"></div>
+                
+                <!-- Journey Stage 2 -->
+                <div class="journey-stage-card">
+                    <div class="stage-number">2</div>
+                    <!-- 3. Visual Storytelling - Chrysalis Icon -->
+                    <div class="stage-icon orange">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6,9C6,9 7,6 12,6C17,6 18,9 18,9M6,15C6,15 7,18 12,18C17,18 18,15 18,15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M12,22C12,22 20,18 20,12C20,6 12,2 12,2C12,2 4,6 4,12C4,18 12,22 12,22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="stage-content">
+                        <h3>Stage 2: Chrysalis</h3>
+                        <h4>The Implementation</h4>
+                        <p>We integrate AI solutions tailored precisely to your business needs—whether it's intelligent chatbots that convert prospects 24/7, AI agents that handle repetitive tasks, or custom solutions that unlock new possibilities.</p>
+                    </div>
+                </div>
+                
+                <!-- Horizontal Connector 2-3 -->
+                <div class="horizontal-connector connector-2-3"></div>
+                
+                <!-- Journey Stage 3 -->
+                <div class="journey-stage-card">
+                    <div class="stage-number">3</div>
+                    <!-- 3. Visual Storytelling - Butterfly Icon -->
+                    <div class="stage-icon purple">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M11,12c0,0,0.5-1,1-1s1,1,1,1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="stage-content">
+                        <h3>Stage 3: Butterfly</h3>
+                        <h4>Your Transformed Business</h4>
+                        <p>Free from operational constraints, your business now operates with remarkable efficiency. Sales happen while you sleep, customer experiences are consistently exceptional, and you have the data insights and freedom to focus on strategic growth.</p>
+                    </div>
+                </div>
+                
+                <!-- Mobile-only vertical connectors, hidden on desktop -->
+                <div class="vertical-connector d-md-none"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Transition -->
+    <div class="section-transition">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,0 C480,120 960,0 1440,80 L1440,120 L0,120 Z" fill="var(--primary)" opacity="0.1"></path>
+            <path d="M0,80 C480,40 960,120 1440,60 L1440,120 L0,120 Z" fill="var(--secondary)" opacity="0.1"></path>
+        </svg>
+        <div class="section-butterfly">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor"></path>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Services Section -->
+    <section class="services section" id="services">
+        <div class="backdrop"></div>
+        
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Explore our cutting-edge solutions designed to empower your business</p>
+            </div>
+            
+            <div class="services-tabs">
+                <div class="services-tab-header">
+                    <div class="tab-item active" data-tab="chatbots">
+                        <div class="tab-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.8214 2.48697 15.5291 3.33782 17L2.5 21.5L7 20.6622C8.47087 21.513 10.1786 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 12H8.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12 12H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M16 12H16.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <span>Chatbots</span>
+                    </div>
+                    <div class="tab-item" data-tab="agents">
+                        <div class="tab-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M9 9H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M15 9H15.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M9 15H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12 2V4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <span>AI Agents</span>
+                    </div>
+                    <div class="tab-item" data-tab="innovative">
+                        <div class="tab-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 17V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7 21H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span>Innovative Solutions</span>
+                    </div>
+                    <div class="tab-item" data-tab="empowerment">
+                        <div class="tab-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 14C16 12.9391 15.5786 11.9217 14.8284 11.1716C14.0783 10.4214 13.0609 10 12 10C10.9391 10 9.92172 10.4214 9.17157 11.1716C8.42143 11.9217 8 12.9391 8 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M16 3V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M8 3V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <span>Business Empowerment</span>
+                    </div>
+                </div>
+                
+                <div class="services-tab-content">
+                    <div class="tab-pane active" id="chatbots">
+                        <div class="service-content-grid">
+                            <div class="service-info">
+                                <h3>Chatbots</h3>
+                                <p class="service-description">Our chatbots help your business communicate with customers at any time.</p>
+                                
+                                <ul class="service-features">
+                                    <li>
+                                        <span class="feature-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12L9 16L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        24/7 customer support with AI chatbots.
+                                    </li>
+                                    <li>
+                                        <span class="feature-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12L9 16L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        Automate routine tasks to boost efficiency.
+                                    </li>
+                                    <li>
+                                        <span class="feature-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12L9 16L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        Provide personalized interactions for better service.
+                                    </li>
+                                </ul>
+                                
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                            <div class="service-image">
+                                <img src="./images/chatbot.jpg" alt="Chatbot illustration showing robot hand holding smartphone">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="agents">
+                        <div class="service-content-grid">
+                            <div class="service-info">
+                                <h3>AI Agents</h3>
+                                <p class="service-description">Use our AI agents for tasks like customer support and data analysis.</p>
+                                
+                                <ul class="service-features">
+                                    <li>
+                                        <span class="feature-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12L9 16L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        Improve customer engagement with AI agents.
+                                    </li>
+                                    <li>
+                                        <span class="feature-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12L9 16L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        Gain insights from your data automatically.
+                                    </li>
+                                    <li>
+                                        <span class="feature-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12L9 16L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        Save time by automating complex processes.
+                                    </li>
+                                </ul>
+                                
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                            <div class="service-image">
+                                <img src="./images/assistant-gradient.jpg" alt="AI Agent illustration showing data analysis dashboard">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="innovative">
+                        <div class="service-content-grid">
+                            <div class="service-info">
+                                <h3>Innovative Solutions</h3>
+                                <p class="service-description">Discover new ways to use AI to grow your business.</p>
+                                
+                                <ul class="service-features">
+                                    <li>
+                                        <span class="feature-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12L9 16L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        Custom AI solutions that fit your needs.
+                                    </li>
+                                    <li>
+                                        <span class="feature-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12L9 16L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        Work with experts to develop smart strategies.
+                                    </li>
+                                    <li>
+                                        <span class="feature-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12L9 16L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        Stay ahead with advanced technology integrations.
+                                    </li>
+                                </ul>
+                                
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                            <div class="service-image">
+                                <img src="./images/expand.jpg" alt="Innovative Solutions illustration showing integrations">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="empowerment">
+                        <div class="service-content-grid">
+                            <div class="service-info">
+                                <h3>Business Empowerment</h3>
+                                <p class="service-description">Use AI tools to boost your business and reach your goals.</p>
+                                
+                                <ul class="service-features">
+                                    <li>
+                                        <span class="feature-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12L9 16L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        Transform your operations with smart AI tools.
+                                    </li>
+                                    <li>
+                                        <span class="feature-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12L9 16L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        Increase efficiency and drive growth.
+                                    </li>
+                                    <li>
+                                        <span class="feature-icon">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12L9 16L19 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        Get expert help to guide your digital transformation.
+                                    </li>
+                                </ul>
+                                
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                            <div class="service-image">
+                                <img src="./images/raising-gradient.jpg" alt="Business Empowerment illustration showing growth metrics">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Transition -->
+    <div class="section-transition">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,0 C480,120 960,0 1440,80 L1440,120 L0,120 Z" fill="var(--primary)" opacity="0.1"></path>
+            <path d="M0,80 C480,40 960,120 1440,60 L1440,120 L0,120 Z" fill="var(--secondary)" opacity="0.1"></path>
+        </svg>
+        <div class="section-butterfly">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor"></path>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+        <div class="backdrop"></div>
+        
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Let's connect and discuss how we can transform your business</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div>
+                        <h3>Contact Information</h3>
+                        <p>Fill out the form or contact us directly and we'll be in touch shortly</p>
+                    </div>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>London, UK</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7294C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77383 17.3147 6.72534 15.2662 5.18999 12.85C3.49997 10.2412 2.44824 7.27099 2.11999 4.18C2.095 3.90347 2.12787 3.62476 2.21649 3.36162C2.30512 3.09849 2.44756 2.85669 2.63476 2.65162C2.82196 2.44655 3.0498 2.28271 3.30379 2.17052C3.55777 2.05833 3.83233 2.00026 4.10999 2H7.10999C7.5953 1.99522 8.06579 2.16708 8.43376 2.4847C8.80173 2.80232 9.04207 3.24199 9.10999 3.72C9.23662 4.68007 9.47144 5.62273 9.80999 6.53C9.94454 6.88792 9.97366 7.27691 9.8939 7.65088C9.81415 8.02485 9.62886 8.36811 9.35999 8.64L8.08999 9.91C9.51355 12.4135 11.5864 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9751 14.1858 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7634 20.28 14.89C20.7648 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>074797391831</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>transform.ai.solutions@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-contact">
+                        <h4>Connect With Us</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M23 3.00005C22.0424 3.67552 20.9821 4.19216 19.86 4.53005C19.2577 3.83756 18.4573 3.34674 17.567 3.12397C16.6767 2.90121 15.7395 2.95724 14.8821 3.2845C14.0247 3.61176 13.2884 4.19445 12.773 4.95376C12.2575 5.71308 11.9877 6.61238 12 7.53005V8.53005C10.2426 8.57561 8.50127 8.18586 6.93101 7.39549C5.36074 6.60513 4.01032 5.43868 3 4.00005C3 4.00005 -1 13 8 17C5.94053 18.398 3.48716 19.099 1 19C10 24 21 19 21 7.50005C20.9991 7.2215 20.9723 6.94364 20.92 6.67005C21.9406 5.66354 22.6608 4.39276 23 3.00005Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm" action="javascript:void(0);">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            
+                            <div class="form-group col-md-6">
+                                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" name="phone" class="form-control" placeholder="Phone number" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" rows="5" placeholder="Tell us about your project..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-secondary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Transition -->
+    <div class="section-transition">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,0 C480,120 960,0 1440,80 L1440,120 L0,120 Z" fill="var(--primary)" opacity="0.1"></path>
+            <path d="M0,80 C480,40 960,120 1440,60 L1440,120 L0,120 Z" fill="var(--secondary)" opacity="0.1"></path>
+        </svg>
+        <div class="section-butterfly">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor"></path>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        
+                        <div class="footer-logo-text">Butterfly AI Solutions</div>
+                    </div>
+                    <p>We guide you through business metamorphosis—not by selling complicated technology, but by delivering the freedom, growth, and customer experiences you've always envisioned.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 3.00005C22.0424 3.67552 20.9821 4.19216 19.86 4.53005C19.2577 3.83756 18.4573 3.34674 17.567 3.12397C16.6767 2.90121 15.7395 2.95724 14.8821 3.2845C14.0247 3.61176 13.2884 4.19445 12.773 4.95376C12.2575 5.71308 11.9877 6.61238 12 7.53005V8.53005C10.2426 8.57561 8.50127 8.18586 6.93101 7.39549C5.36074 6.60513 4.01032 5.43868 3 4.00005C3 4.00005 -1 13 8 17C5.94053 18.398 3.48716 19.099 1 19C10 24 21 19 21 7.50005C20.9991 7.2215 20.9723 6.94364 20.92 6.67005C21.9406 5.66354 22.6608 4.39276 23 3.00005Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 11.37C16.1234 12.2022 15.9813 13.0522 15.5938 13.799C15.2063 14.5458 14.5931 15.1514 13.8416 15.5297C13.0901 15.9079 12.2384 16.0396 11.4078 15.9059C10.5771 15.7723 9.80976 15.3801 9.21484 14.7852C8.61991 14.1902 8.22773 13.4229 8.09406 12.5922C7.9604 11.7615 8.09206 10.9099 8.47032 10.1584C8.84858 9.40685 9.45418 8.79374 10.201 8.40624C10.9478 8.01874 11.7978 7.87658 12.63 8C13.4789 8.12588 14.2648 8.52146 14.8717 9.12831C15.4785 9.73515 15.8741 10.5211 16 11.37Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.5 6.5H17.51" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#journey">Journey</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h4 class="footer-title">Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="switchTab('chatbots')">Chatbots</a></li>
+                        <li><a href="#" onclick="switchTab('agents')">AI Agents</a></li>
+                        <li><a href="#" onclick="switchTab('innovative')">Innovative Solutions</a></li>
+                        <li><a href="#" onclick="switchTab('empowerment')">Business Empowerment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+                    <form id="newsletterForm" class="newsletter-form" action="javascript:void(0);">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Butterfly AI Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to Top Button -->
+    <a href="#" id="scrollTop" class="scroll-top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+    
+    <script>
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const nav = document.getElementById('nav');
+        
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        const scrollTop = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                scrollTop.classList.add('active');
+            } else {
+                header.classList.remove('scrolled');
+                scrollTop.classList.remove('active');
+            }
+        });
+        
+        // Services tab functionality
+        function switchTab(tabId) {
+            // Handle both string and event parameter
+            let targetTabId = tabId;
+            if (typeof tabId === 'object' && tabId.preventDefault) {
+                tabId.preventDefault();
+                targetTabId = tabId.target.closest('.tab-item').getAttribute('data-tab');
+            } else if (typeof tabId === 'object') {
+                targetTabId = tabId.getAttribute('data-tab');
+            }
+            
+            const tabItems = document.querySelectorAll('.tab-item');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            // Remove active class from all tabs
+            tabItems.forEach(item => item.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            tabItems.forEach(item => {
+                if (item.getAttribute('data-tab') === targetTabId) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Show corresponding tab content
+            tabPanes.forEach(pane => {
+                pane.classList.remove('active');
+                if (pane.id === targetTabId) {
+                    pane.classList.add('active');
+                }
+            });
+        }
+        
+        document.querySelectorAll('.tab-item').forEach(tab => {
+            tab.addEventListener('click', switchTab);
+        });
+        
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.25
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements
+        const animateElements = document.querySelectorAll('.section-title, .about-content, .about-image, .contact-form, .contact-info');
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Floating shapes animation on mousemove - Enhanced for interactivity
+        const floatingShapes = document.querySelectorAll('.floating-shape');
+        const butterflies = document.querySelectorAll('.butterfly');
+        
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            floatingShapes.forEach((shape, index) => {
+                const offsetX = (mouseX - 0.5) * 25 * (index + 1);
+                const offsetY = (mouseY - 0.5) * 25 * (index + 1);
+                
+                shape.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            });
+            
+            // Also move butterfly elements slightly for enhanced interactivity
+            butterflies.forEach((butterfly, index) => {
+                const offsetX = (mouseX - 0.5) * 15 * (index + 1);
+                const offsetY = (mouseY - 0.5) * 15 * (index + 1);
+                
+                butterfly.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (nav.classList.contains('active')) {
+                            navToggle.classList.remove('active');
+                            nav.classList.remove('active');
+                        }
+                    }
+                }
+            });
+        });
+        
+        // Enhanced form submission with feedback
+        const contactForm = document.getElementById('contactForm');
+        const newsletterForm = document.getElementById('newsletterForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const formEntries = Object.fromEntries(formData.entries());
+            
+            // Add success message with animation
+            const successMessage = document.createElement('div');
+            successMessage.className = 'success-message';
+            successMessage.innerHTML = `
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#46cde8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 4L12 14.01L9 11.01" stroke="#46cde8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Thank you for your message! We will get back to you shortly.</span>
+            `;
+            
+            // Apply styles to the success message
+            Object.assign(successMessage.style, {
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                backgroundColor: 'white',
+                padding: '20px',
+                borderRadius: '12px',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                zIndex: '10',
+                opacity: '0',
+                transition: 'opacity 0.3s ease'
+            });
+            
+            contactForm.parentElement.style.position = 'relative';
+            contactForm.parentElement.appendChild(successMessage);
+            
+            // Animate the success message
+            setTimeout(() => {
+                successMessage.style.opacity = '1';
+            }, 10);
+            
+            // Reset form and remove message after a delay
+            contactForm.reset();
+            
+            setTimeout(() => {
+                successMessage.style.opacity = '0';
+                setTimeout(() => {
+                    successMessage.remove();
+                }, 300);
+            }, 3000);
+        });
+        
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input[type="email"]').value;
+            
+            // Add success message with animation
+            const newsletterSuccess = document.createElement('div');
+            newsletterSuccess.className = 'success-message';
+            newsletterSuccess.innerHTML = `
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#e8654b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 4L12 14.01L9 11.01" stroke="#e8654b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Thank you for subscribing to our newsletter!</span>
+            `;
+            
+            // Apply styles to the success message
+            Object.assign(newsletterSuccess.style, {
+                marginTop: '15px',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                padding: '10px 15px',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                color: 'white',
+                opacity: '0',
+                transition: 'opacity 0.3s ease'
+            });
+            
+            newsletterForm.parentElement.appendChild(newsletterSuccess);
+            
+            // Animate the success message
+            setTimeout(() => {
+                newsletterSuccess.style.opacity = '1';
+            }, 10);
+            
+            // Reset form and remove message after a delay
+            newsletterForm.reset();
+            
+            setTimeout(() => {
+                newsletterSuccess.style.opacity = '0';
+                setTimeout(() => {
+                    newsletterSuccess.remove();
+                }, 300);
+            }, 3000);
+        });
+        
+        // Initialize services tab
+        document.addEventListener('DOMContentLoaded', function() {
+            // Default to first tab
+            const firstTab = document.querySelector('.tab-item');
+            if (firstTab) {
+                firstTab.classList.add('active');
+                const firstTabId = firstTab.getAttribute('data-tab');
+                const firstPane = document.getElementById(firstTabId);
+                if (firstPane) {
+                    firstPane.classList.add('active');
+                }
+            }
+            
+            // Initialize observers after DOM is loaded
+            const sectionTitles = document.querySelectorAll('.section-title');
+            sectionTitles.forEach(title => {
+                observer.observe(title);
+            });
+        });
+    </script>
+</body>
+</html>
