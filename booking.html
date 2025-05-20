@@ -462,13 +462,14 @@
             font-size: 1.1rem;
         }
         
-        .loading {
+        .loading .container-content { /* Target content to dim, not whole container bg */
             opacity: 0.7;
             pointer-events: none;
         }
         
         .loading .btn {
-            background: #ccc;
+            background: #ccc !important; /* Ensure override */
+            box-shadow: none !important;
             cursor: not-allowed;
         }
         
@@ -536,124 +537,126 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <svg class="butterfly-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor" />
-                <path d="M11,12c0,0,0.5-1,1-1s1,1,1,1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+    <div class="container" id="main-container"> <!-- Added ID for easier manipulation -->
+        <div class="container-content"> <!-- Added wrapper for loading state -->
+            <header>
+                <svg class="butterfly-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor" />
+                    <path d="M11,12c0,0,0.5-1,1-1s1,1,1,1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                
+                <h1>Book an Appointment</h1>
+                <p>Choose a date and time that works best for you.</p>
+            </header>
             
-            <h1>Book an Appointment</h1>
-            <p>Choose a date and time that works best for you.</p>
-        </header>
-        
-        <div class="booking-container">
-            <div class="calendar-container">
-                <div class="year-month-selector">
-                    <select id="month-selector" class="selector">
-                        <option value="0">January</option>
-                        <option value="1">February</option>
-                        <option value="2">March</option>
-                        <option value="3">April</option>
-                        <option value="4">May</option>
-                        <option value="5">June</option>
-                        <option value="6">July</option>
-                        <option value="7">August</option>
-                        <option value="8">September</option>
-                        <option value="9">October</option>
-                        <option value="10">November</option>
-                        <option value="11">December</option>
-                    </select>
+            <div class="booking-container">
+                <div class="calendar-container">
+                    <div class="year-month-selector">
+                        <select id="month-selector" class="selector">
+                            <option value="0">January</option>
+                            <option value="1">February</option>
+                            <option value="2">March</option>
+                            <option value="3">April</option>
+                            <option value="4">May</option>
+                            <option value="5">June</option>
+                            <option value="6">July</option>
+                            <option value="7">August</option>
+                            <option value="8">September</option>
+                            <option value="9">October</option>
+                            <option value="10">November</option>
+                            <option value="11">December</option>
+                        </select>
+                        
+                        <select id="year-selector" class="selector">
+                            <!-- Will be populated with JavaScript -->
+                        </select>
+                    </div>
                     
-                    <select id="year-selector" class="selector">
-                        <!-- Will be populated with JavaScript -->
-                    </select>
-                </div>
-                
-                <div class="calendar-header">
-                    <div class="calendar-nav">
-                        <button id="prev-month">←</button>
+                    <div class="calendar-header">
+                        <div class="calendar-nav">
+                            <button id="prev-month">←</button>
+                        </div>
+                        <div class="calendar-title" id="calendar-title">May 2025</div>
+                        <div class="calendar-nav">
+                            <button id="next-month">→</button>
+                        </div>
                     </div>
-                    <div class="calendar-title" id="calendar-title">May 2025</div>
-                    <div class="calendar-nav">
-                        <button id="next-month">→</button>
-                    </div>
-                </div>
-                
-                <div class="calendar">
-                    <div class="calendar-weekday">Sun</div>
-                    <div class="calendar-weekday">Mon</div>
-                    <div class="calendar-weekday">Tue</div>
-                    <div class="calendar-weekday">Wed</div>
-                    <div class="calendar-weekday">Thu</div>
-                    <div class="calendar-weekday">Fri</div>
-                    <div class="calendar-weekday">Sat</div>
-                    <!-- Calendar days will be added with JavaScript -->
-                </div>
-            </div>
-            
-            <div class="time-slots-container" id="time-slots-section">
-                <div class="time-slots-header">Select a Time</div>
-                
-                <div class="availability-legend">
-                    <div class="legend-item">
-                        <div class="legend-color legend-available"></div>
-                        <span>Available</span>
+                    
+                    <div class="calendar">
+                        <div class="calendar-weekday">Sun</div>
+                        <div class="calendar-weekday">Mon</div>
+                        <div class="calendar-weekday">Tue</div>
+                        <div class="calendar-weekday">Wed</div>
+                        <div class="calendar-weekday">Thu</div>
+                        <div class="calendar-weekday">Fri</div>
+                        <div class="calendar-weekday">Sat</div>
+                        <!-- Calendar days will be added with JavaScript -->
                     </div>
                 </div>
                 
-                <div class="time-slots" id="time-slots">
-                    <!-- Time slots will be added with JavaScript -->
-                </div>
-            </div>
-        </div>
-        
-        <div class="confirmation" id="confirmation-section">
-            <div class="confirmation-header">Confirm Your Appointment</div>
-            
-            <div class="confirmation-details">
-                <div class="detail-group">
-                    <div class="detail-label">Date</div>
-                    <div class="detail-value" id="selected-date">May 16, 2025</div>
-                </div>
-                
-                <div class="detail-group">
-                    <div class="detail-label">Time</div>
-                    <div class="detail-value" id="selected-time">Select a time</div>
+                <div class="time-slots-container" id="time-slots-section">
+                    <div class="time-slots-header">Select a Time</div>
+                    
+                    <div class="availability-legend">
+                        <div class="legend-item">
+                            <div class="legend-color legend-available"></div>
+                            <span>Available</span>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slots" id="time-slots">
+                        <!-- Time slots will be added with JavaScript -->
+                    </div>
                 </div>
             </div>
             
-            <form id="booking-form">
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required>
+            <div class="confirmation" id="confirmation-section">
+                <div class="confirmation-header">Confirm Your Appointment</div>
+                
+                <div class="confirmation-details">
+                    <div class="detail-group">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value" id="selected-date">Select a date</div>
+                    </div>
+                    
+                    <div class="detail-group">
+                        <div class="detail-label">Time</div>
+                        <div class="detail-value" id="selected-time">Select a time</div>
+                    </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="company">Company</label>
-                    <input type="text" id="company" name="company">
-                </div>
-                
-                <div class="form-group full-width">
-                    <label for="notes">Notes (Optional)</label>
-                    <textarea id="notes" name="notes" placeholder="Tell us about your project or what you'd like to discuss..."></textarea>
-                </div>
-                
-                <div class="form-group full-width">
-                    <button type="submit" class="btn">Confirm Booking</button>
-                </div>
-            </form>
-        </div>
+                <form id="booking-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="notes">Notes (Optional)</label>
+                        <textarea id="notes" name="notes" placeholder="Tell us about your project or what you'd like to discuss..."></textarea>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn">Confirm Booking</button>
+                    </div>
+                </form>
+            </div>
+        </div> <!-- End of .container-content -->
     </div>
 
     <script>
@@ -671,6 +674,8 @@
             let displayedYear = currentYear;
             
             // DOM elements
+            const mainContainer = document.getElementById('main-container');
+            const containerContent = mainContainer.querySelector('.container-content');
             const calendarTitle = document.getElementById('calendar-title');
             const calendarContainer = document.querySelector('.calendar');
             const monthSelector = document.getElementById('month-selector');
@@ -701,28 +706,21 @@
             
             // Function to update the calendar
             function updateCalendar() {
-                // Update the calendar title
                 const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                 calendarTitle.textContent = `${monthNames[displayedMonth]} ${displayedYear}`;
                 
-                // Clear previous calendar days
-                const weekdayElements = document.querySelectorAll('.calendar-weekday');
                 Array.from(calendarContainer.children).forEach(child => {
                     if (!child.classList.contains('calendar-weekday')) {
                         calendarContainer.removeChild(child);
                     }
                 });
                 
-                // Get the first day of the month and the number of days
                 const firstDay = new Date(displayedYear, displayedMonth, 1);
                 const lastDay = new Date(displayedYear, displayedMonth + 1, 0);
                 const daysInMonth = lastDay.getDate();
-                const firstDayIndex = firstDay.getDay(); // 0 for Sunday, 1 for Monday, etc.
-                
-                // Get the last day of the previous month
+                const firstDayIndex = firstDay.getDay();
                 const prevMonthLastDay = new Date(displayedYear, displayedMonth, 0).getDate();
                 
-                // Add days from the previous month
                 for (let i = 0; i < firstDayIndex; i++) {
                     const day = document.createElement('div');
                     day.classList.add('calendar-day', 'other-month', 'disabled');
@@ -730,68 +728,42 @@
                     calendarContainer.appendChild(day);
                 }
                 
-                // Add days for the current month
                 for (let i = 1; i <= daysInMonth; i++) {
                     const day = document.createElement('div');
                     day.classList.add('calendar-day');
                     day.textContent = i;
                     
-                    // Check if this is today
+                    const dayDate = new Date(displayedYear, displayedMonth, i);
+                    const todayDateOnly = new Date(currentYear, currentMonth, currentDay);
+
                     if (displayedYear === currentYear && displayedMonth === currentMonth && i === currentDay) {
                         day.classList.add('today');
                     }
                     
-                    // Check if this day is before today (disable past dates)
-                    const dayDate = new Date(displayedYear, displayedMonth, i);
-                    if (dayDate < new Date(currentYear, currentMonth, currentDay)) {
+                    if (dayDate < todayDateOnly) {
                         day.classList.add('disabled');
                     } else {
-                        // All future dates have availability
                         day.classList.add('has-events');
-                        
-                        // Add click event listener for future dates
                         day.addEventListener('click', function() {
-                            if (!day.classList.contains('disabled')) {
-                                // Remove selected class from all days
-                                document.querySelectorAll('.calendar-day').forEach(d => {
-                                    d.classList.remove('selected');
-                                });
-                                
-                                // Add selected class to this day
-                                day.classList.add('selected');
-                                
-                                // Update selected date
-                                selectedDate = new Date(displayedYear, displayedMonth, i);
-                                
-                                // Format the date for display
-                                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                                selectedDateDisplay.textContent = selectedDate.toLocaleDateString('en-US', options);
-                                
-                                // Reset selected time
-                                selectedTime = null;
-                                selectedTimeDisplay.textContent = 'Select a time';
-                                
-                                // Show time slots for this date
-                                generateTimeSlots();
-                                
-                                // Show the time slots section if it was hidden
-                                timeSlotsSection.classList.remove('hidden');
-                                
-                                // Scroll to time slots section
-                                timeSlotsSection.scrollIntoView({ behavior: 'smooth' });
-                            }
+                            if (day.classList.contains('disabled')) return;
+                            document.querySelectorAll('.calendar-day.selected').forEach(d => d.classList.remove('selected'));
+                            day.classList.add('selected');
+                            selectedDate = new Date(displayedYear, displayedMonth, i);
+                            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                            selectedDateDisplay.textContent = selectedDate.toLocaleDateString('en-US', options);
+                            selectedTime = null;
+                            selectedTimeDisplay.textContent = 'Select a time';
+                            generateTimeSlots();
+                            timeSlotsSection.classList.remove('hidden');
+                            timeSlotsSection.scrollIntoView({ behavior: 'smooth' });
                         });
                     }
-                    
                     calendarContainer.appendChild(day);
                 }
                 
-                // Calculate how many days from the next month we need to show
                 const totalDaysShown = firstDayIndex + daysInMonth;
-                const remainingCells = 42 - totalDaysShown; // 6 rows of 7 days
-                
-                // Add days from the next month
-                for (let i = 1; i <= remainingCells && i <= 14; i++) {
+                const remainingCells = (Math.ceil(totalDaysShown / 7) * 7) - totalDaysShown; // Fill current week/grid
+                 for (let i = 1; i <= remainingCells && i <= 14 ; i++) { // Max 2 weeks of next month
                     const day = document.createElement('div');
                     day.classList.add('calendar-day', 'other-month', 'disabled');
                     day.textContent = i;
@@ -799,225 +771,171 @@
                 }
             }
             
-            // Function to generate time slots - ALL AVAILABLE
             function generateTimeSlots() {
-                // Clear previous time slots
                 timeSlots.innerHTML = '';
+                const startHour = 9;
+                const endHour = 17;
+                const interval = 30;
                 
-                // Start and end times
-                const startHour = 9; // 9 AM
-                const endHour = 17; // 5 PM
-                const interval = 30; // 30 minute intervals
-                
-                // Loop through the times
                 for (let hour = startHour; hour < endHour; hour++) {
                     for (let minute = 0; minute < 60; minute += interval) {
-                        // Create a time slot element
                         const timeSlot = document.createElement('div');
                         timeSlot.classList.add('time-slot');
-                        
-                        // Format the time (e.g., "9:00 AM")
-                        const hourDisplay = hour > 12 ? hour - 12 : (hour === 0 ? 12 : hour);
+                        const hourDisplay = hour % 12 === 0 ? 12 : hour % 12;
                         const minuteDisplay = minute === 0 ? '00' : minute;
                         const ampm = hour >= 12 ? 'PM' : 'AM';
                         const timeText = `${hourDisplay}:${minuteDisplay} ${ampm}`;
-                        
                         timeSlot.textContent = timeText;
                         
-                        // Add click event listener for time slots
                         timeSlot.addEventListener('click', function() {
-                            // Remove selected class from all time slots
-                            document.querySelectorAll('.time-slot').forEach(slot => {
-                                slot.classList.remove('selected');
-                            });
-                            
-                            // Add selected class to this time slot
+                            document.querySelectorAll('.time-slot.selected').forEach(slot => slot.classList.remove('selected'));
                             timeSlot.classList.add('selected');
-                            
-                            // Update selected time
                             selectedTime = timeText;
                             selectedTimeDisplay.textContent = selectedTime;
-                            
-                            // Show the confirmation section
                             confirmationSection.classList.remove('hidden');
-                            
-                            // Scroll to confirmation section
                             confirmationSection.scrollIntoView({ behavior: 'smooth' });
                         });
-                        
-                        // Add the time slot to the container
                         timeSlots.appendChild(timeSlot);
                     }
                 }
             }
             
-            // Event listeners for month navigation
             prevMonthBtn.addEventListener('click', function() {
                 displayedMonth--;
-                
-                if (displayedMonth < 0) {
-                    displayedMonth = 11;
-                    displayedYear--;
-                }
-                
-                monthSelector.value = displayedMonth;
-                yearSelector.value = displayedYear;
+                if (displayedMonth < 0) { displayedMonth = 11; displayedYear--; }
+                monthSelector.value = displayedMonth; yearSelector.value = displayedYear;
                 updateCalendar();
             });
             
             nextMonthBtn.addEventListener('click', function() {
                 displayedMonth++;
-                
-                if (displayedMonth > 11) {
-                    displayedMonth = 0;
-                    displayedYear++;
-                }
-                
-                monthSelector.value = displayedMonth;
-                yearSelector.value = displayedYear;
+                if (displayedMonth > 11) { displayedMonth = 0; displayedYear++; }
+                monthSelector.value = displayedMonth; yearSelector.value = displayedYear;
                 updateCalendar();
             });
             
-            // Event listeners for month and year selectors
             monthSelector.addEventListener('change', function() {
-                displayedMonth = parseInt(this.value);
-                updateCalendar();
+                displayedMonth = parseInt(this.value); updateCalendar();
             });
-            
             yearSelector.addEventListener('change', function() {
-                displayedYear = parseInt(this.value);
-                updateCalendar();
+                displayedYear = parseInt(this.value); updateCalendar();
             });
             
-            // Function to send email notifications
-            async function sendEmailNotifications(bookingData) {
-                // This is where you would integrate with your backend email service
-                // For now, we'll simulate the email sending process
-                
-                const emailData = {
-                    customerEmail: bookingData.email,
-                    customerName: bookingData.name,
-                    appointmentDate: selectedDateDisplay.textContent,
-                    appointmentTime: selectedTime,
-                    phone: bookingData.phone,
-                    company: bookingData.company,
-                    notes: bookingData.notes,
-                    // Add your business email here
-                    businessEmail: 'transform.ai.solutions@gmail.com'
-                };
-                
+            // Function to submit booking data to Formspree
+            async function submitBookingDataToFormspree(bookingData) {
+                // !!! IMPORTANT: Replace 'YOUR_FORM_ID_HERE' with your actual Formspree form ID !!!
+                const formspreeEndpoint = 'https://formspree.io/f/xvgayvka'; 
+                // Example: const formspreeEndpoint = 'https://formspree.io/f/abcdefgh';
+
+                if (formspreeEndpoint.includes('YOUR_FORM_ID_HERE')) {
+                    console.error("Formspree endpoint not configured. Please replace 'YOUR_FORM_ID_HERE'.");
+                    alert("Booking system is not configured. Please contact support.");
+                    return { success: false, error: "Formspree endpoint not configured." };
+                }
+
                 try {
-                    // Simulate API call to your backend
-                    const response = await fetch('/api/send-booking-emails', {
+                    const response = await fetch(formspreeEndpoint, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
+                            'Accept': 'application/json'
                         },
-                        body: JSON.stringify(emailData)
+                        body: JSON.stringify(bookingData)
                     });
                     
                     if (!response.ok) {
-                        throw new Error('Failed to send email notifications');
+                        let errorMessage = 'Failed to submit booking.';
+                        try {
+                            const errorData = await response.json();
+                            errorMessage = errorData.error || (errorData.errors ? errorData.errors.map(e => e.message).join(', ') : errorMessage);
+                        } catch (e) { /* ignore */ }
+                        throw new Error(errorMessage);
                     }
-                    
-                    return { success: true };
+                    return { success: true, data: await response.json() };
                 } catch (error) {
-                    console.error('Email notification error:', error);
-                    // Don't fail the booking if email fails
+                    console.error('Formspree submission error:', error);
                     return { success: false, error: error.message };
                 }
             }
             
-            // Event listener for the booking form
             bookingForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
-                // Check if date and time are selected
                 if (!selectedDate || !selectedTime) {
-                    alert('Please select both a date and time for your appointment.');
-                    return;
+                    alert('Please select both a date and time for your appointment.'); return;
                 }
                 
-                // Show loading state
                 const submitBtn = bookingForm.querySelector('.btn');
-                const originalText = submitBtn.textContent;
+                const originalBtnText = submitBtn.textContent;
                 submitBtn.textContent = 'Processing...';
                 submitBtn.disabled = true;
-                document.querySelector('.container').classList.add('loading');
+                mainContainer.classList.add('loading');
                 
-                // Get form values
-                const bookingData = {
-                    name: document.getElementById('name').value.trim(),
-                    email: document.getElementById('email').value.trim(),
-                    phone: document.getElementById('phone').value.trim(),
-                    company: document.getElementById('company').value.trim(),
-                    notes: document.getElementById('notes').value.trim()
-                };
-                
-                // Validate required fields
-                if (!bookingData.name || !bookingData.email || !bookingData.phone) {
-                    alert('Please fill in all required fields.');
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    document.querySelector('.container').classList.remove('loading');
+                const nameVal = document.getElementById('name').value.trim();
+                const emailVal = document.getElementById('email').value.trim();
+                const phoneVal = document.getElementById('phone').value.trim();
+
+                if (!nameVal || !emailVal || !phoneVal) {
+                    alert('Please fill in all required fields (Name, Email, Phone).');
+                    submitBtn.textContent = originalBtnText; submitBtn.disabled = false;
+                    mainContainer.classList.remove('loading');
                     return;
                 }
+
+                const bookingDataForFormspree = {
+                    _subject: `New Appointment: ${nameVal} - ${selectedDateDisplay.textContent} at ${selectedTime}`,
+                    _replyto: emailVal, // For Formspree autoresponder to the user
+                    name: nameVal,
+                    email: emailVal, // Also include as a regular field
+                    phone: phoneVal,
+                    company: document.getElementById('company').value.trim(),
+                    notes: document.getElementById('notes').value.trim(),
+                    appointmentDate: selectedDateDisplay.textContent,
+                    appointmentTime: selectedTime
+                };
                 
                 try {
-                    // Send email notifications
-                    const emailResult = await sendEmailNotifications(bookingData);
+                    const submissionResult = await submitBookingDataToFormspree(bookingDataForFormspree);
                     
-                    // Create confirmation message
-                    const emailStatusText = emailResult.success 
-                        ? `Confirmation emails have been sent to ${bookingData.email} and our team.`
-                        : `Your booking is confirmed! You'll receive a confirmation email shortly.`;
-                    
-                    const confirmationMessage = `
-                        <div class="thank-you-container">
-                            <svg class="butterfly-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor" />
-                                <path d="M11,12c0,0,0.5-1,1-1s1,1,1,1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            
-                            <h1>Booking Confirmed!</h1>
-                            <p><strong>Name:</strong> ${bookingData.name}</p>
-                            <p><strong>Date:</strong> ${selectedDateDisplay.textContent}</p>
-                            <p><strong>Time:</strong> ${selectedTime}</p>
-                            <p><strong>Email:</strong> ${bookingData.email}</p>
-                            <p><strong>Phone:</strong> ${bookingData.phone}</p>
-                            ${bookingData.company ? `<p><strong>Company:</strong> ${bookingData.company}</p>` : ''}
-                            ${bookingData.notes ? `<p><strong>Notes:</strong> ${bookingData.notes}</p>` : ''}
-                            <br>
-                            <p>${emailStatusText}</p>
-                            <p>We'll contact you soon to confirm the details.</p>
-                            <button class="btn" onclick="window.location.reload()">Book Another Appointment</button>
-                        </div>
-                    `;
-                    
-                    // Replace the entire container with the confirmation message
-                    document.querySelector('.container').innerHTML = confirmationMessage;
-                    
-                    // Scroll to top
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    
+                    if (submissionResult.success) {
+                        const thankYouMessage = `
+                            <div class="thank-you-container">
+                                <svg class="butterfly-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor" />
+                                    <path d="M11,12c0,0,0.5-1,1-1s1,1,1,1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <h1>Booking Request Submitted!</h1>
+                                <p>Thank you, <strong>${bookingDataForFormspree.name}</strong>.</p>
+                                <p>Your appointment request for:</p>
+                                <p><strong>Date:</strong> ${bookingDataForFormspree.appointmentDate}</p>
+                                <p><strong>Time:</strong> ${bookingDataForFormspree.appointmentTime}</p>
+                                <p>has been successfully submitted.</p>
+                                <p>A confirmation email will be sent to <strong>${bookingDataForFormspree.email}</strong> if an auto-responder is set up.</p>
+                                <p>Our team has been notified and will be in touch if further details are required.</p>
+                                <br>
+                                <button class="btn" onclick="window.location.reload()">Book Another Appointment</button>
+                            </div>
+                        `;
+                        mainContainer.innerHTML = thankYouMessage; // Replace entire container content
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        alert(`Submission failed: ${submissionResult.error || 'Please try again.'}`);
+                        submitBtn.textContent = originalBtnText; submitBtn.disabled = false;
+                        mainContainer.classList.remove('loading');
+                    }
                 } catch (error) {
-                    console.error('Booking error:', error);
-                    alert('There was an error processing your booking. Please try again.');
-                    
-                    // Reset button state
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    document.querySelector('.container').classList.remove('loading');
+                    console.error('Booking process error:', error);
+                    alert('An unexpected error occurred. Please try again.');
+                    submitBtn.textContent = originalBtnText; submitBtn.disabled = false;
+                    mainContainer.classList.remove('loading');
                 }
             });
             
-            // Initialize the calendar
             updateCalendar();
-            
-            // Hide the time slots and confirmation sections initially
             timeSlotsSection.classList.add('hidden');
             confirmationSection.classList.add('hidden');
         });
     </script>
+</body>
+</html>
 </body>
 </html>
