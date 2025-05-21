@@ -57,6 +57,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
+<!-- EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 
 <!-- Favicons -->
@@ -222,8 +224,30 @@
     #chatbot-send:hover {
         background-color: var(--primary-dark, #5c48c9);
     }
+
+    /* Form submission message styles */
+    .form-submission-message {
+        margin-top: 15px;
+    }
+
+    .form-submission-message .success {
+        color: #4caf50;
+        background-color: #e8f5e8;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #4caf50;
+    }
+
+    .form-submission-message .error {
+        color: #f44336;
+        background-color: #ffebee;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #f44336;
+    }
 </style>
 <!-- END: Chatbot Specific Styles -->
+
 </head>
 
 <body>
@@ -1310,9 +1334,122 @@ Get expert help to guide your digital transformation.
     </div>
     <!-- END: Chatbot HTML -->
 
-    <!-- START: Chatbot JavaScript -->
+    <!-- EmailJS Integration Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        // Initialize EmailJS when the page loads
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY_HERE"); // Replace with your actual EmailJS public key
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Contact Form Handler with EmailJS
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form elements
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const messageContainer = this.querySelector('.form-submission-message');
+                    
+                    // Show loading state
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Clear previous messages
+                    if (messageContainer) {
+                        messageContainer.innerHTML = '';
+                    }
+                    
+                    // Prepare template parameters for EmailJS
+                    const templateParams = {
+                        from_name: this.querySelector('#name').value,
+                        from_email: this.querySelector('#email').value,
+                        phone: this.querySelector('#phone').value,
+                        business_type: this.querySelector('#business').value,
+                        message: this.querySelector('#message').value,
+                        budget: this.querySelector('#budget').value || 'Not specified',
+                        newsletter: this.querySelector('#newsletter').checked ? 'Yes' : 'No',
+                        to_email: 'transform.ai.solutions@gmail.com'
+                    };
+                    
+                    // Send email using EmailJS
+                    emailjs.send('service_mnr8blq', 'template_zoeh9hj', templateParams)
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            
+                            // Show success message
+                            if (messageContainer) {
+                                messageContainer.innerHTML = '<div class="success">✅ Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.</div>';
+                            } else {
+                                alert('Thank you! Your message has been sent successfully.');
+                            }
+                            
+                            // Reset form
+                            contactForm.reset();
+                            
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            
+                            // Show error message
+                            if (messageContainer) {
+                                messageContainer.innerHTML = '<div class="error">❌ Failed to send message. Please try again or contact us directly at transform.ai.solutions@gmail.com</div>';
+                            } else {
+                                alert('Failed to send message. Please try again or contact us directly.');
+                            }
+                        })
+                        .finally(function() {
+                            // Restore button state
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                        });
+                });
+            }
+
+            // Newsletter Form Handler with EmailJS
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = this.querySelector('input[type="email"]').value;
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    
+                    // Show loading state
+                    const originalHTML = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                    submitBtn.disabled = true;
+                    
+                    // Send newsletter signup email
+                    const templateParams = {
+                        from_name: 'Newsletter Subscriber',
+                        from_email: email,
+                        phone: 'N/A',
+                        business_type: 'Newsletter Signup',
+                        message: `New newsletter subscription request from: ${email}`,
+                        budget: 'N/A',
+                        newsletter: 'Yes',
+                        to_email: 'transform.ai.solutions@gmail.com'
+                    };
+                    
+                    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                        .then(function(response) {
+                            alert('Thank you for subscribing! Welcome to our newsletter.');
+                            newsletterForm.reset();
+                        }, function(error) {
+                            alert('Subscription failed. Please try again.');
+                            console.log('Newsletter error:', error);
+                        })
+                        .finally(function() {
+                            submitBtn.innerHTML = originalHTML;
+                            submitBtn.disabled = false;
+                        });
+                });
+            }
+
+            // Chatbot JavaScript (keeping your existing chatbot code)
             const chatbotToggle = document.getElementById('chatbot-toggle');
             const chatbotContainer = document.getElementById('chatbot-container');
             const chatbotClose = document.getElementById('chatbot-close');
@@ -1341,7 +1478,7 @@ Get expert help to guide your digital transformation.
             function addMessage(text, sender) {
                 const messageElement = document.createElement('div');
                 messageElement.classList.add('chat-message', sender + '-message');
-                messageElement.innerHTML = text; // Using innerHTML to allow for bolding, lists etc.
+                messageElement.innerHTML = text;
                 chatbotMessages.appendChild(messageElement);
                 chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
             }
@@ -1353,12 +1490,11 @@ Get expert help to guide your digital transformation.
                 }, 500);
             }
             
-            // Call this function when the chatbot is opened for the first time or when it's appropriate
             let hasGreeted = false;
 
             chatbotToggle.addEventListener('click', () => {
                 chatbotContainer.style.display = 'flex';
-                chatbotToggle.style.display = 'none'; // Hide toggle when chat is open
+                chatbotToggle.style.display = 'none';
                 if (!hasGreeted) {
                     sendInitialGreeting();
                     hasGreeted = true;
@@ -1367,7 +1503,7 @@ Get expert help to guide your digital transformation.
 
             chatbotClose.addEventListener('click', () => {
                 chatbotContainer.style.display = 'none';
-                chatbotToggle.style.display = 'flex'; // Show toggle when chat is closed
+                chatbotToggle.style.display = 'flex';
             });
 
             function getBotResponse(userInput) {
@@ -1412,7 +1548,6 @@ Get expert help to guide your digital transformation.
                     response = `That's an interesting question! While I'm still learning, the best way to get a detailed answer would be to explore our website or ${businessData.cta.consultation.toLowerCase()}`;
                 }
                 
-                // Simulate API call delay
                 setTimeout(() => {
                     addMessage(response, 'bot');
                 }, 700 + Math.random() * 500);
@@ -1425,7 +1560,6 @@ Get expert help to guide your digital transformation.
                 addMessage(messageText, 'user');
                 chatbotInput.value = "";
                 
-                // Simulate "typing" or processing
                 setTimeout(() => {
                     const typingIndicator = document.createElement('div');
                     typingIndicator.classList.add('chat-message', 'bot-message');
@@ -1433,7 +1567,6 @@ Get expert help to guide your digital transformation.
                     chatbotMessages.appendChild(typingIndicator);
                     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 
-                    // Remove typing indicator before actual response
                     setTimeout(() => {
                         chatbotMessages.removeChild(typingIndicator);
                         getBotResponse(messageText);
@@ -1450,7 +1583,6 @@ Get expert help to guide your digital transformation.
             });
         });
     </script>
-    <!-- END: Chatbot JavaScript -->
     
     <!-- Link to external JavaScript file -->
     <script src="./script.js"></script>

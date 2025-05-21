@@ -6,6 +6,9 @@
     <title>Book an Appointment | Butterfly AI Solutions</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- EmailJS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <style>
         :root {
             --primary: #5e46e8;
@@ -660,6 +663,11 @@
     </div>
 
     <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("86PXEfl-wod6s0nZD"); // Replace with your actual EmailJS public key
+        })();
+
         document.addEventListener('DOMContentLoaded', function() {
             // Current date
             const currentDate = new Date();
@@ -821,43 +829,7 @@
                 displayedYear = parseInt(this.value); updateCalendar();
             });
             
-            // Function to submit booking data to Formspree
-            async function submitBookingDataToFormspree(bookingData) {
-                // !!! IMPORTANT: Replace 'YOUR_FORM_ID_HERE' with your actual Formspree form ID !!!
-                const formspreeEndpoint = 'https://formspree.io/f/xvgayvka'; 
-                // Example: const formspreeEndpoint = 'https://formspree.io/f/abcdefgh';
-
-                if (formspreeEndpoint.includes('YOUR_FORM_ID_HERE')) {
-                    console.error("Formspree endpoint not configured. Please replace 'YOUR_FORM_ID_HERE'.");
-                    alert("Booking system is not configured. Please contact support.");
-                    return { success: false, error: "Formspree endpoint not configured." };
-                }
-
-                try {
-                    const response = await fetch(formspreeEndpoint, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify(bookingData)
-                    });
-                    
-                    if (!response.ok) {
-                        let errorMessage = 'Failed to submit booking.';
-                        try {
-                            const errorData = await response.json();
-                            errorMessage = errorData.error || (errorData.errors ? errorData.errors.map(e => e.message).join(', ') : errorMessage);
-                        } catch (e) { /* ignore */ }
-                        throw new Error(errorMessage);
-                    }
-                    return { success: true, data: await response.json() };
-                } catch (error) {
-                    console.error('Formspree submission error:', error);
-                    return { success: false, error: error.message };
-                }
-            }
-            
+            // EmailJS Form Submission (UPDATED PART)
             bookingForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 if (!selectedDate || !selectedTime) {
@@ -881,50 +853,51 @@
                     return;
                 }
 
-                const bookingDataForFormspree = {
-                    _subject: `New Appointment: ${nameVal} - ${selectedDateDisplay.textContent} at ${selectedTime}`,
-                    _replyto: emailVal, // For Formspree autoresponder to the user
-                    name: nameVal,
-                    email: emailVal, // Also include as a regular field
+                // Prepare template parameters for EmailJS
+                const templateParams = {
+                    from_name: nameVal,
+                    from_email: emailVal,
                     phone: phoneVal,
-                    company: document.getElementById('company').value.trim(),
-                    notes: document.getElementById('notes').value.trim(),
-                    appointmentDate: selectedDateDisplay.textContent,
-                    appointmentTime: selectedTime
+                    company: document.getElementById('company').value.trim() || 'Not specified',
+                    notes: document.getElementById('notes').value.trim() || 'No additional notes',
+                    appointment_date: selectedDateDisplay.textContent,
+                    appointment_time: selectedTime,
+                    to_email: 'transform.ai.solutions@gmail.com',
+                    message: `New appointment booking from ${nameVal}.\n\nAppointment Details:\nDate: ${selectedDateDisplay.textContent}\nTime: ${selectedTime}\n\nContact Info:\nEmail: ${emailVal}\nPhone: ${phoneVal}\nCompany: ${document.getElementById('company').value.trim() || 'Not specified'}\n\nNotes: ${document.getElementById('notes').value.trim() || 'No additional notes'}`
                 };
                 
                 try {
-                    const submissionResult = await submitBookingDataToFormspree(bookingDataForFormspree);
+                    // Send email using EmailJS with your service and template IDs
+                    const response = await emailjs.send('service_mnr8blq', 'template_zoeh9hj', templateParams);
                     
-                    if (submissionResult.success) {
-                        const thankYouMessage = `
-                            <div class="thank-you-container">
-                                <svg class="butterfly-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor" />
-                                    <path d="M11,12c0,0,0.5-1,1-1s1,1,1,1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <h1>Booking Request Submitted!</h1>
-                                <p>Thank you, <strong>${bookingDataForFormspree.name}</strong>.</p>
-                                <p>Your appointment request for:</p>
-                                <p><strong>Date:</strong> ${bookingDataForFormspree.appointmentDate}</p>
-                                <p><strong>Time:</strong> ${bookingDataForFormspree.appointmentTime}</p>
-                                <p>has been successfully submitted.</p>
-                                <p>A confirmation email will be sent to <strong>${bookingDataForFormspree.email}</strong> if an auto-responder is set up.</p>
-                                <p>Our team has been notified and will be in touch if further details are required.</p>
-                                <br>
-                                <button class="btn" onclick="window.location.reload()">Book Another Appointment</button>
-                            </div>
-                        `;
-                        mainContainer.innerHTML = thankYouMessage; // Replace entire container content
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else {
-                        alert(`Submission failed: ${submissionResult.error || 'Please try again.'}`);
-                        submitBtn.textContent = originalBtnText; submitBtn.disabled = false;
-                        mainContainer.classList.remove('loading');
-                    }
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Show success page
+                    const thankYouMessage = `
+                        <div class="thank-you-container">
+                            <svg class="butterfly-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.5,17c0,0-3.5,4-9,0s-1.5-8.5,0.5-8.5s4,0.5,5,3.5c1-3,3-4,5-3.5s5.5,4.5,0,8.5S7.5,17,7.5,17" fill="currentColor" />
+                                <path d="M11,12c0,0,0.5-1,1-1s1,1,1,1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <h1>Booking Request Submitted!</h1>
+                            <p>Thank you, <strong>${nameVal}</strong>.</p>
+                            <p>Your appointment request for:</p>
+                            <p><strong>Date:</strong> ${selectedDateDisplay.textContent}</p>
+                            <p><strong>Time:</strong> ${selectedTime}</p>
+                            <p>has been successfully submitted.</p>
+                            <p>We have received your booking request and will contact you at <strong>${emailVal}</strong> within 24 hours to confirm your appointment.</p>
+                            <p>Our team has been notified and will be in touch if further details are required.</p>
+                            <br>
+                            <button class="btn" onclick="window.location.reload()">Book Another Appointment</button>
+                        </div>
+                    `;
+                    mainContainer.innerHTML = thankYouMessage; // Replace entire container content
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
                 } catch (error) {
-                    console.error('Booking process error:', error);
-                    alert('An unexpected error occurred. Please try again.');
+                    console.log('FAILED...', error);
+                    
+                    alert(`Submission failed: ${error.text || error.message || 'Please try again or contact us directly.'}`);
                     submitBtn.textContent = originalBtnText; submitBtn.disabled = false;
                     mainContainer.classList.remove('loading');
                 }
@@ -935,7 +908,5 @@
             confirmationSection.classList.add('hidden');
         });
     </script>
-</body>
-</html>
 </body>
 </html>
