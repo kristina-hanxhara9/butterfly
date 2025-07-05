@@ -1552,68 +1552,16 @@ function animateCounter(element, finalValue) {
     
     requestAnimationFrame(updateCounter);
 }
-  <!-- 📅 Floating Booking Button - Always Visible -->
-<div id="floatingBooking" style="
-  position: fixed;
-  right: 25px;
-  bottom: 25px;
-  z-index: 99999;
-">
-  <button onclick="toggleFloatingWidget()" style="
-    background: #3B82F6;
-    color: white;
-    border: none;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    font-size: 24px;
-    transition: all 0.3s ease;
-  " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-    📅
-  </button>
-  
-  <div id="floatingWidget" style="
-    display: none;
-    position: absolute;
-    bottom: 80px;
-    right: 0;
-    width: 400px;
-    height: 600px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    overflow: hidden;
-  ">
-    <div style="
-      background: #3B82F6;
-      color: white;
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: bold;
-    ">
-      <span>📅 Book Appointment</span>
-      <button onclick="toggleFloatingWidget()" style="
-        background: none;
-        border: none;
-        color: white;
-        font-size: 20px;
-        cursor: pointer;
-      ">✕</button>
-    </div>
-    <iframe 
-      src="https://booking-platform-kristina.fly.dev/widget/cmc1w9oag0002zl90q762rbxs" 
-      width="100%" 
-      height="calc(100% - 60px)" 
-      frameborder="0" 
-      style="border: none;"
-      title="Book Appointment">
-    </iframe>
-  </div>
-</div>
+ <!-- 🎯 RECOMMENDED: Combined Booking + Chat Widget -->
+<script>
+  (function() {
+    var widget = document.createElement('iframe');
+    widget.src = 'https://booking-platform-kristina.fly.dev/widget/combined?businessId=cmc1w9oag0002zl90q762rbxs&theme=light&color=%232196F3';
+    widget.style.cssText = 'position: fixed; bottom: 20px; right: 20px; width: 400px; height: 650px; border: none; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); z-index: 9999; background: white;';
+    widget.title = 'ButterflAI - Book & Chat';
+    document.body.appendChild(widget);
+  })();
+</script>
 
 <script>
 function toggleFloatingWidget() {
