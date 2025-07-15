@@ -27,37 +27,6 @@
 
 <!-- Custom adjustments -->
 <style>
-/* Make stats smaller and better aligned */
-.problem-stats {
-  gap: 1rem !important;
-}
-
-.stat {
-  max-width: 350px !important;
-  padding: 1.8rem !important;
-  min-height: 260px !important;
-}
-
-.stat h3 {
-  font-size: 3rem !important;
-  margin: 1rem 0 !important;
-}
-
-.stat p {
-  font-size: 1rem !important;
-  line-height: 1.4 !important;
-  margin: 0.5rem 0 !important;
-}
-
-.stat small {
-  font-size: 0.8rem !important;
-}
-
-.stat-icon {
-  width: 52px !important;
-  height: 52px !important;
-  font-size: 24px !important;
-}
 
 /* Make assessment form wider and less tall */
 .contact-grid {
@@ -153,17 +122,6 @@
     min-height: 44px !important;
     display: block !important;
     text-align: center !important;
-  }
-  
-  /* Stats section mobile */
-  .problem-stats {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-  }
-  
-  .stat {
-    max-width: 100% !important;
-    margin: 0 auto !important;
   }
   
   /* Services section mobile */
@@ -318,10 +276,6 @@
     grid-template-columns: repeat(2, 1fr) !important;
   }
   
-  .problem-stats {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-  
   .contact-grid {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
@@ -342,10 +296,6 @@
     padding: 14px 20px !important;
     font-size: 16px !important;
     max-width: 100% !important;
-  }
-  
-  .stat {
-    padding: 1.5rem 1rem !important;
   }
   
   .stage-card {
@@ -381,7 +331,6 @@ textarea {
 
 /* Better tap targets for mobile */
 @media (max-width: 768px) {
-  .stat-icon,
   .stage-number,
   .contact-icon,
   .nav-toggle {
@@ -684,80 +633,6 @@ textarea {
 <div class="floating-shape"></div>
 <div class="floating-shape"></div>
 <div class="floating-shape"></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Problems & Solutions Section -->
-<section class="problems-solutions section" id="problems">
-<div class="backdrop"></div>
-<div class="container">
-<div class="section-title">
-<h2>Business Performance Impact Analysis</h2>
-<p>Quantified losses from manual booking processes based on industry research</p>
-</div>
-
-<div class="problem-stats">
-<div class="stat">
-<div class="stat-header">
-<div class="stat-icon">
-<i class="fas fa-phone"></i>
-</div>
-<div class="trend-indicator">
-<span class="trend-arrow">↗</span>
-High Impact
-</div>
-</div>
-<h3>27%</h3>
-<p>potential customers lost to missed calls</p>
-<small>Harvard Business Review Study</small>
-<div class="loss-indicator">
-<div class="loss-bar">
-<div class="loss-fill"></div>
-</div>
-<div class="severity-badge">Critical</div>
-</div>
-</div>
-<div class="stat">
-<div class="stat-header">
-<div class="stat-icon">
-<i class="fas fa-money-bill-wave"></i>
-</div>
-<div class="trend-indicator">
-<span class="trend-arrow">↗</span>
-Revenue Impact
-</div>
-</div>
-<h3>£3,200</h3>
-<p>average monthly loss from no-shows</p>
-<small>UK Service Industry Report</small>
-<div class="loss-indicator">
-<div class="loss-bar">
-<div class="loss-fill"></div>
-</div>
-<div class="severity-badge">Severe</div>
-</div>
-</div>
-<div class="stat">
-<div class="stat-header">
-<div class="stat-icon">
-<i class="fas fa-clock"></i>
-</div>
-<div class="trend-indicator">
-<span class="trend-arrow">↗</span>
-Efficiency Loss
-</div>
-</div>
-<h3>15 hours</h3>
-<p>per week spent on booking administration</p>
-<small>Small Business Association</small>
-<div class="loss-indicator">
-<div class="loss-bar">
-<div class="loss-fill"></div>
-</div>
-<div class="severity-badge">Moderate</div>
 </div>
 </div>
 </div>
@@ -1588,7 +1463,7 @@ This customer has requested a free business assessment.`,
 
     // Observe elements for animations
     const animateElements = document.querySelectorAll(
-        '.section-title, .stat, .service-category, .expertise-item, .pricing-card, .assessment-info, .assessment-form, .stage-card'
+        '.section-title, .service-category, .expertise-item, .pricing-card, .assessment-info, .assessment-form, .stage-card'
     );
     animateElements.forEach(element => {
         observer.observe(element);
@@ -1614,69 +1489,7 @@ This customer has requested a free business assessment.`,
             }
         });
     });
-
-    // Statistics counter animation
-    const stats = document.querySelectorAll('.stat h3');
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = entry.target;
-                const finalValue = target.textContent;
-                
-                // Only animate numbers
-                if (/\d/.test(finalValue)) {
-                    animateCounter(target, finalValue);
-                }
-                
-                statsObserver.unobserve(target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    stats.forEach(stat => {
-        statsObserver.observe(stat);
-    });
 });
-
-// Counter animation function
-function animateCounter(element, finalValue) {
-    // Extract number from string
-    const numMatch = finalValue.match(/[\d,]+/);
-    if (!numMatch) return;
-    
-    const numStr = numMatch[0].replace(/,/g, '');
-    const num = parseInt(numStr);
-    
-    if (isNaN(num)) return;
-    
-    const duration = 2000; // 2 seconds
-    const startTime = performance.now();
-    const prefix = finalValue.split(numMatch[0])[0];
-    const suffix = finalValue.split(numMatch[0])[1] || '';
-    
-    function updateCounter(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        // Easing function for smooth animation
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        const currentNum = Math.floor(num * easeOut);
-        
-        // Format number with commas if original had them
-        const formattedNum = finalValue.includes(',') ? 
-            currentNum.toLocaleString() : currentNum.toString();
-        
-        element.textContent = prefix + formattedNum + suffix;
-        
-        if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-        } else {
-            element.textContent = finalValue; // Ensure final value is exact
-        }
-    }
-    
-    requestAnimationFrame(updateCounter);
-}
 </script>
 
 <script src="./script.js"></script>
