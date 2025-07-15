@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AI-powered booking and customer management systems for service businesses. Never miss another customer with 24/7 AI phone answering, smart scheduling, and automated review collection.">
+<meta name="description" content="Complete AI automation for service businesses: AI-powered websites, fully automated systems, and intelligent booking solutions. Transform your business with AI that works 24/7.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://transformaisolutions.com/">
 
-<title>AI Solutions for Service Businesses | Never Miss Another Customer</title>
+<title>AI Automation for Service Businesses | AI-Powered Websites & Intelligent Systems</title>
 
 <!-- Enhanced Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -172,6 +172,40 @@
     gap: 1.5rem !important;
   }
   
+  /* AI services grid mobile */
+  .ai-services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 0 1rem !important;
+  }
+  
+  .ai-service-card {
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    padding: 2rem 1.5rem !important;
+  }
+  
+  .ai-service-card h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  .ai-service-card p {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  .ai-service-card ul li {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.7rem !important;
+  }
+  
+  .ai-service-icon {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 20px !important;
+    margin: 0 auto 1rem auto !important;
+  }
+  
   /* Form improvements */
   .form-control, input, select, textarea {
     min-height: 44px !important;
@@ -263,6 +297,21 @@
   .hero-grid {
     grid-template-columns: 1fr !important;
     gap: 3rem !important;
+  }
+  
+  .ai-services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+  }
+  
+  .ai-service-card {
+    padding: 2rem !important;
+  }
+  
+  .ai-service-card:last-child {
+    grid-column: 1 / -1 !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
   }
   
   .service-categories-single-row {
@@ -363,6 +412,37 @@ textarea {
 .transformation-journey .backdrop {
   background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(147, 51, 234, 0.05));
 }
+
+/* Core AI Services Grid - Enhanced Styles */
+.ai-service-card {
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.ai-service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+.ai-service-card h3 {
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.ai-service-card p {
+  line-height: 1.6;
+  color: #6b7280;
+}
+
+.ai-service-card ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+/* Transformation Journey Section Continued */
 
 .journey-stages {
   display: grid;
@@ -569,9 +649,8 @@ textarea {
 <nav id="nav">
 <ul>
 <li><a href="#hero">Home</a></li>
-<li><a href="#problems">Why AI?</a></li>
 <li><a href="#transformation">Journey</a></li>
-<li><a href="#services">Industries</a></li>
+<li><a href="#services">AI Solutions</a></li>
 <li><a href="#expertise">Why Choose Us</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
@@ -589,8 +668,8 @@ textarea {
 <div class="container">
 <div class="hero-grid">
 <div class="hero-content">
-<h1>Never Miss Another <span>Customer Again</span></h1>
-<p>AI-powered booking and customer management systems specifically designed for service businesses. From hair salons and dental practices to electricians and personal trainers—we help you capture every opportunity, reduce no-shows, and grow your revenue.</p>
+<h1>Transform Your Business with <span>AI Automation</span></h1>
+<p>From AI-powered websites that work 24/7 to fully automated business systems—we create intelligent digital ecosystems that run your service business automatically. Never miss another customer with complete AI automation.</p>
 
 <div class="cta-section">
 <a href="./booking.html" target="_blank" class="btn btn-primary">Book a free consultation</a>
@@ -605,80 +684,6 @@ textarea {
 <div class="floating-shape"></div>
 <div class="floating-shape"></div>
 <div class="floating-shape"></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Problems & Solutions Section -->
-<section class="problems-solutions section" id="problems">
-<div class="backdrop"></div>
-<div class="container">
-<div class="section-title">
-<h2>Business Performance Impact Analysis</h2>
-<p>Quantified losses from manual booking processes based on industry research</p>
-</div>
-
-<div class="problem-stats">
-<div class="stat">
-<div class="stat-header">
-<div class="stat-icon">
-<i class="fas fa-phone"></i>
-</div>
-<div class="trend-indicator">
-<span class="trend-arrow">↗</span>
-High Impact
-</div>
-</div>
-<h3>27%</h3>
-<p>potential customers lost to missed calls</p>
-<small>Harvard Business Review Study</small>
-<div class="loss-indicator">
-<div class="loss-bar">
-<div class="loss-fill"></div>
-</div>
-<div class="severity-badge">Critical</div>
-</div>
-</div>
-<div class="stat">
-<div class="stat-header">
-<div class="stat-icon">
-<i class="fas fa-money-bill-wave"></i>
-</div>
-<div class="trend-indicator">
-<span class="trend-arrow">↗</span>
-Revenue Impact
-</div>
-</div>
-<h3>£3,200</h3>
-<p>average monthly loss from no-shows</p>
-<small>UK Service Industry Report</small>
-<div class="loss-indicator">
-<div class="loss-bar">
-<div class="loss-fill"></div>
-</div>
-<div class="severity-badge">Severe</div>
-</div>
-</div>
-<div class="stat">
-<div class="stat-header">
-<div class="stat-icon">
-<i class="fas fa-clock"></i>
-</div>
-<div class="trend-indicator">
-<span class="trend-arrow">↗</span>
-Efficiency Loss
-</div>
-</div>
-<h3>15 hours</h3>
-<p>per week spent on booking administration</p>
-<small>Small Business Association</small>
-<div class="loss-indicator">
-<div class="loss-bar">
-<div class="loss-fill"></div>
-</div>
-<div class="severity-badge">Moderate</div>
 </div>
 </div>
 </div>
@@ -754,8 +759,58 @@ Efficiency Loss
 <div class="backdrop"></div>
 <div class="container">
 <div class="section-title">
-<h2>AI Solutions for Service Businesses</h2>
-<p>Tailored specifically for your industry's unique booking and customer management needs</p>
+<h2>Complete AI Automation for Service Businesses</h2>
+<p>Intelligent systems that run your business automatically - from websites to customer management</p>
+</div>
+
+<!-- Core AI Services Row -->
+<div class="ai-services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+<div class="ai-service-card" style="background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(124, 58, 237, 0.12)); border: 1px solid rgba(79, 70, 229, 0.15); color: #1f2937; padding: 2.5rem; border-radius: 16px; text-align: center; box-shadow: 0 2px 8px rgba(79, 70, 229, 0.08);">
+<div class="ai-service-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(124, 58, 237, 0.2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 24px; color: #6366f1;">
+<i class="fas fa-globe"></i>
+</div>
+<h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #1f2937;">AI-Powered Websites</h3>
+<p style="margin-bottom: 1.5rem; color: #6b7280;">Intelligent websites with AI chatbots, personalized content, and smart visitor interactions that convert 24/7.</p>
+<ul style="text-align: left; list-style: none; padding: 0;">
+<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: #6366f1; margin-right: 0.5rem;"></i> AI chatbots that understand your business</li>
+<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: #6366f1; margin-right: 0.5rem;"></i> Personalized content for each visitor</li>
+<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: #6366f1; margin-right: 0.5rem;"></i> Smart lead qualification and routing</li>
+<li><i class="fas fa-check" style="color: #6366f1; margin-right: 0.5rem;"></i> Real-time analytics and insights</li>
+</ul>
+</div>
+
+<div class="ai-service-card" style="background: linear-gradient(135deg, rgba(5, 150, 105, 0.08), rgba(16, 185, 129, 0.12)); border: 1px solid rgba(5, 150, 105, 0.15); color: #1f2937; padding: 2.5rem; border-radius: 16px; text-align: center; box-shadow: 0 2px 8px rgba(5, 150, 105, 0.08);">
+<div class="ai-service-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, rgba(5, 150, 105, 0.15), rgba(16, 185, 129, 0.2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 24px; color: #10b981;">
+<i class="fas fa-magic"></i>
+</div>
+<h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #1f2937;">Fully Automated AI Websites</h3>
+<p style="margin-bottom: 1.5rem; color: #6b7280;">Complete business automation - websites that handle marketing, sales, customer service, and follow-ups automatically.</p>
+<ul style="text-align: left; list-style: none; padding: 0;">
+<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i> Automated email marketing campaigns</li>
+<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i> AI-driven customer journeys</li>
+<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i> Automatic review collection</li>
+<li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i> Smart CRM and follow-up sequences</li>
+</ul>
+</div>
+
+<div class="ai-service-card" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.08), rgba(245, 158, 11, 0.12)); border: 1px solid rgba(220, 38, 38, 0.15); color: #1f2937; padding: 2.5rem; border-radius: 16px; text-align: center; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.08);">
+<div class="ai-service-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(245, 158, 11, 0.2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 24px; color: #f59e0b;">
+<i class="fas fa-robot"></i>
+</div>
+<h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #1f2937;">AI Booking & Management</h3>
+<p style="margin-bottom: 1.5rem; color: #6b7280;">Intelligent booking systems with AI phone answering, smart scheduling, and automated customer management.</p>
+<ul style="text-align: left; list-style: none; padding: 0;">
+<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: #f59e0b; margin-right: 0.5rem;"></i> 24/7 AI phone answering</li>
+<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: #f59e0b; margin-right: 0.5rem;"></i> Smart appointment scheduling</li>
+<li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: #f59e0b; margin-right: 0.5rem;"></i> Automated no-show prevention</li>
+<li><i class="fas fa-check" style="color: #f59e0b; margin-right: 0.5rem;"></i> Intelligent customer insights</li>
+</ul>
+</div>
+</div>
+
+<div class="section-title" style="margin-top: 2rem;">
+<h3>Industry-Specific AI Solutions</h3>
+<p>Specialized AI implementations tailored to your business type</p>
 </div>
 
 <div class="service-categories-single-row">
@@ -864,7 +919,7 @@ Efficiency Loss
 <path d="M12 2V4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
 </svg>
 </div>
-<span>Proven Technology</span>
+<span>AI Automation</span>
 </div>
 <div class="tab-item" data-tab="results">
 <div class="tab-icon">
@@ -924,34 +979,40 @@ Compliance with sector regulations (HIPAA, etc.)
 <div class="tab-pane" id="technology">
 <div class="service-content-grid">
 <div class="service-info">
-<h3>Proven Technology</h3>
-<p class="service-description">Built on enterprise-grade AI platforms with 99.9% uptime. Our systems handle thousands of bookings daily across multiple industries.</p>
+<h3>Complete AI Automation</h3>
+<p class="service-description">From AI-powered websites to fully automated business systems—we create intelligent solutions that run your business 24/7 without human intervention.</p>
 
 <ul class="service-features">
 <li>
 <span class="feature-icon">
 <i class="fas fa-check"></i>
 </span>
-Enterprise-grade infrastructure with guaranteed uptime
+AI websites that adapt and personalize for each visitor
 </li>
 <li>
 <span class="feature-icon">
 <i class="fas fa-check"></i>
 </span>
-Advanced natural language processing for accurate bookings
+Fully automated customer journeys and marketing workflows
 </li>
 <li>
 <span class="feature-icon">
 <i class="fas fa-check"></i>
 </span>
-Seamless integration with existing business tools
+Intelligent booking systems with AI phone answering
+</li>
+<li>
+<span class="feature-icon">
+<i class="fas fa-check"></i>
+</span>
+Smart analytics and continuous self-optimization
 </li>
 </ul>
 
 <a href="./booking.html" target="_blank" class="btn btn-primary">Book Free Consultation</a>
 </div>
 <div class="service-image">
-<img src="./images/expand.jpg" alt="Advanced AI technology dashboard">
+<img src="./images/expand.jpg" alt="AI automation dashboard showing intelligent business processes">
 </div>
 </div>
 </div>
@@ -1121,15 +1182,16 @@ Comprehensive staff training and onboarding
 </div>
 
 <div class="form-group">
-<label for="challenge">Primary Challenge</label>
+<label for="challenge">Primary Interest</label>
 <select id="challenge" name="challenge" class="form-control" required>
-<option value="">What's your biggest challenge?</option>
-<option value="missed-calls">Missing calls & losing customers</option>
-<option value="no-shows">High no-show rates</option>
-<option value="admin-time">Too much admin work</option>
-<option value="after-hours">Missing after-hours opportunities</option>
-<option value="scheduling-conflicts">Double bookings & scheduling issues</option>
-<option value="poor-reviews">Need more positive reviews</option>
+<option value="">What are you most interested in?</option>
+<option value="ai-powered-website">AI-Powered Website with Smart Features</option>
+<option value="automated-website">Fully Automated AI Website & Marketing</option>
+<option value="ai-booking-system">AI Booking & Customer Management</option>
+<option value="ai-phone-answering">24/7 AI Phone Answering</option>
+<option value="complete-automation">Complete AI Business Automation</option>
+<option value="no-shows">Reducing No-Shows & Cancellations</option>
+<option value="admin-automation">Automating Admin Work</option>
 </select>
 </div>
 </div>
@@ -1214,13 +1276,12 @@ Your information is secure and will only be used to provide your assessment.
 </div>
 
 <div class="footer-links-column">
-<h4 class="footer-title">Solutions</h4>
+<h4 class="footer-title">AI Solutions</h4>
 <ul class="footer-links">
-<li><a href="#problems">AI Call Handling</a></li>
-<li><a href="#problems">Smart Scheduling</a></li>
-<li><a href="#problems">Review Automation</a></li>
+<li><a href="#services">AI-Powered Websites</a></li>
+<li><a href="#services">Automated AI Websites</a></li>
+<li><a href="#services">AI Booking & Management</a></li>
 <li><a href="#transformation">Transformation Journey</a></li>
-<li><a href="#services">Industry Solutions</a></li>
 <li><a href="#expertise">Why Choose Us</a></li>
 <li><a href="./booking.html" target="_blank">Book Consultation</a></li>
 </ul>
