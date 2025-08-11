@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools Guide - Butterfly AI | Choose the Right AI for Every Task</title>
+    <meta name="description" content="Interactive guide to choosing the right AI tool for any task. From Claude to ChatGPT, DALL-E to Sora - find the perfect AI for your needs.">
+    <meta name="keywords" content="AI tools, artificial intelligence, ChatGPT, Claude, Gemini, DALL-E, Sora, AI guide, Butterfly AI">
+    <meta name="author" content="Butterfly AI">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://butterfly-ai.co.uk/guide/">
+    <meta property="og:title" content="AI Tools Guide - Butterfly AI">
+    <meta property="og:description" content="Interactive guide to choosing the right AI tool for any task">
+    <meta property="og:image" content="https://butterfly-ai.co.uk/guide/images/bg-removed.webp">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://butterfly-ai.co.uk/guide/">
+    <meta property="twitter:title" content="AI Tools Guide - Butterfly AI">
+    <meta property="twitter:description" content="Interactive guide to choosing the right AI tool for any task">
+    <meta property="twitter:image" content="https://butterfly-ai.co.uk/guide/images/bg-removed.webp">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="./images/bg-removed.webp">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            colour: white;
+            margin-bottom: 40px;
+        }
+
+        .header-logo {
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .header-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .header-logo img {
+            height: 80px;
+            width: auto;
+            filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.3));
+            max-width: 100%;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .ai-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .ai-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-color);
+        }
+
+        .claude { --accent-color: #ff6b35; }
+        .chatgpt { --accent-color: #10a37f; }
+        .gemini { --accent-color: #4285f4; }
+        .llm { --accent-color: #9c27b0; }
+        .dalle { --accent-color: #ff4081; }
+        .sora { --accent-color: #e91e63; }
+        .elevenlabs { --accent-color: #2196f3; }
+        .perplexity { --accent-color: #00bcd4; }
+
+        .ai-header {
+            display: flex;
+            align-items: centre;
+            margin-bottom: 15px;
+        }
+
+        .ai-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            margin-right: 12px;
+            display: flex;
+            align-items: centre;
+            justify-content: centre;
+            font-size: 20px;
+            colour: white;
+            background: var(--accent-color);
+        }
+
+        .ai-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            colour: #333;
+        }
+
+        .ai-tagline {
+            colour: #666;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .use-cases {
+            display: none;
+        }
+
+        .use-cases.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .use-case {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .use-case-title {
+            font-weight: 600;
+            colour: #333;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: centre;
+            font-size: 0.9rem;
+        }
+
+        .use-case-title::before {
+            content: '→';
+            margin-right: 6px;
+            colour: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .use-case-desc {
+            colour: #555;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .prompt-example {
+            background: #e9ecef;
+            border-radius: 6px;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            position: relative;
+            cursor: pointer;
+            border: 1px dashed #ccc;
+            margin-bottom: 6px;
+        }
+
+        .prompt-example:hover {
+            background: #dee2e6;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            background: var(--accent-color);
+            colour: white;
+            border: none;
+            border-radius: 3px;
+            padding: 2px 6px;
+            font-size: 0.6rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .prompt-example:hover .copy-btn {
+            opacity: 1;
+        }
+
+        .expand-btn {
+            background: var(--accent-color);
+            colour: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 12px;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .expand-btn:hover {
+            background: color-mix(in srgb, var(--accent-color) 80%, black 20%);
+            transform: scale(1.02);
+        }
+
+        .quick-access {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+
+        .quick-access h2 {
+            colour: #333;
+            margin-bottom: 20px;
+            text-align: centre;
+        }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .scenario {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: centre;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scenario:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .scenario-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+            colour: #333;
+            font-size: 0.85rem;
+        }
+
+        .scenario-ai {
+            colour: #666;
+            font-size: 0.8rem;
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            colour: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .footer {
+            text-align: centre;
+            colour: white;
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .ai-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="https://butterfly-ai.co.uk/" target="_blank" class="header-logo">
+                <img src="./images/bg-removed.webp" alt="Butterfly AI - AI Tools and Training" loading="lazy" />
+            </a>
+            <h1>AI Tools Guide</h1>
+            <p>Choose the right AI for every task - Click the cards to explore!</p>
+        </div>
+
+        <div class="ai-grid">
+            <!-- Claude Card -->
+            <div class="ai-card claude" data-ai="claude">
+                <div class="ai-header">
+                    <div class="ai-icon">🧠</div>
+                    <div>
+                        <div class="ai-name">Claude</div>
+                    </div>
+                </div>
+                <div class="ai-tagline">Best for: Code, Complex Writing, Professional Documents & Analysis</div>
+                <button class="expand-btn" onclick="toggleUseCase('claude')">Explore Claude →</button>
+                
+                <div class="use-cases" id="claude-cases">
+                    <div class="use-case">
+                        <div class="use-case-title">Professional Email Writing</div>
+                        <div class="use-case-desc">Craft perfect business emails, complaints, awkward requests</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Write a message to cancel my gym membership without paying cancellation fees"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Help me explain to my boss why I need 2 weeks off for mental health"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Write a complaint to my landlord about getting my £800 deposit back"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Code & Technical Solutions</div>
+                        <div class="use-case-desc">Write clean, functional code with proper explanations</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Build a simple website for my plumbing business with contact form"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create a Python script to organise my photo collection by date"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Legal & Contract Documents</div>
+                        <div class="use-case-desc">Create contracts, agreements, formal letters</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create a freelance photography contract with payment terms"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Write a formal letter to dispute a parking fine"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">CV & Job Applications</div>
+                        <div class="use-case-desc">Tailor CVs, write cover letters, prepare for interviews</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Rewrite my CV for a career change from teaching to marketing"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Write a cover letter for this job posting [paste job description]"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ChatGPT Card -->
+            <div class="ai-card chatgpt" data-ai="chatgpt">
+                <div class="ai-header">
+                    <div class="ai-icon">💬</div>
+                    <div>
+                        <div class="ai-name">ChatGPT</div>
+                    </div>
+                </div>
+                <div class="ai-tagline">Best for: Everyday Questions, Financial Planning, Life Advice & Learning</div>
+                <button class="expand-btn" onclick="toggleUseCase('chatgpt')">Explore ChatGPT →</button>
+                
+                <div class="use-cases" id="chatgpt-cases">
+                    <div class="use-case">
+                        <div class="use-case-title">Personal Finance & Budgeting</div>
+                        <div class="use-case-desc">Budget planning, debt strategies, investment advice</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create a monthly budget for a family of 4 earning £45k per year in Manchester"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "I have £20k debt at 19% interest. Should I pay it off or invest?"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Calculate if I should remortgage my house - current rate 4.5%, new offers 3.8%"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Relationship & Social Situations</div>
+                        <div class="use-case-desc">Awkward conversations, conflict resolution, social advice</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "How do I tell my friend I can't lend them money without damaging our friendship?"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Write a polite way to decline a wedding invitation due to cost"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Help me create a dating profile that actually gets matches"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Parenting & Family Issues</div>
+                        <div class="use-case-desc">Child-rearing advice, family dynamics, school issues</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "My teenager won't do homework. What are effective strategies that actually work?"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "How to talk to my 8-year-old about why mummy and daddy are getting divorced"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Learning & Skills Development</div>
+                        <div class="use-case-desc">Explain topics simply, create study plans, develop skills</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Explain mortgages like I'm 16 and help me understand what I need to know"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create a 30-day plan to learn basic Spanish for my holiday"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gemini Card -->
+            <div class="ai-card gemini" data-ai="gemini">
+                <div class="ai-header">
+                    <div class="ai-icon">🔍</div>
+                    <div>
+                        <div class="ai-name">Gemini</div>
+                    </div>
+                </div>
+                <div class="ai-tagline">Best for: Image Recognition, Current Research, Shopping & Price Comparisons</div>
+                <button class="expand-btn" onclick="toggleUseCase('gemini')">Explore Gemini →</button>
+                
+                <div class="use-cases" id="gemini-cases">
+                    <div class="use-case">
+                        <div class="use-case-title">Photo Recognition & Product Search</div>
+                        <div class="use-case-desc">Upload photos to identify anything and find where to buy it</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "What is this plant in my garden and how do I care for it?"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "I saw this handbag in a shop window - find it online and compare prices"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "What's wrong with my car engine based on this photo?"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Current Events & Live Research</div>
+                        <div class="use-case-desc">Latest news, real-time information, trending topics</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "What are the latest mortgage rates in the UK this week?"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Find current train strikes affecting London commutes"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Shopping & Price Hunting</div>
+                        <div class="use-case-desc">Find best deals, compare prices, track discounts</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Compare iPhone 15 prices across all UK retailers and find current deals"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Find the cheapest car insurance for a 25-year-old in Birmingham"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Travel & Local Information</div>
+                        <div class="use-case-desc">Flight prices, local services, restaurant recommendations</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Find cheapest flights London to Barcelona in June 2024"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Best curry houses in Leeds with delivery and current offers"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DALL-E Card -->
+            <div class="ai-card dalle" data-ai="dalle">
+                <div class="ai-header">
+                    <div class="ai-icon">🎨</div>
+                    <div>
+                        <div class="ai-name">DALL-E</div>
+                    </div>
+                </div>
+                <div class="ai-tagline">Best for: Creating Images, Logos, Social Media Content & Visual Ideas</div>
+                <button class="expand-btn" onclick="toggleUseCase('dalle')">Explore DALL-E →</button>
+                
+                <div class="use-cases" id="dalle-cases">
+                    <div class="use-case">
+                        <div class="use-case-title">Business Graphics & Logos</div>
+                        <div class="use-case-desc">Create professional visuals for your business</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Design a logo for 'Fresh Bites' healthy meal delivery service, modern and clean"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create a 'Now Hiring' poster for a coffee shop, friendly and welcoming"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Social Media Content</div>
+                        <div class="use-case-desc">Eye-catching posts, stories, profile pictures</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create an Instagram story template for announcing weekend sales"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Design a Facebook cover photo for a dog walking service"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Personal & Creative Projects</div>
+                        <div class="use-case-desc">Birthday invites, home décor, gift ideas</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create a birthday invitation for my 5-year-old's dinosaur-themed party"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Design wall art for my kitchen with herbs and cooking theme"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sora Card -->
+            <div class="ai-card sora" data-ai="sora">
+                <div class="ai-header">
+                    <div class="ai-icon">🎬</div>
+                    <div>
+                        <div class="ai-name">Sora</div>
+                    </div>
+                </div>
+                <div class="ai-tagline">Best for: Video Creation, Social Media Reels, Product Demos & Presentations</div>
+                <button class="expand-btn" onclick="toggleUseCase('sora')">Explore Sora →</button>
+                
+                <div class="use-cases" id="sora-cases">
+                    <div class="use-case">
+                        <div class="use-case-title">Business Promotional Videos</div>
+                        <div class="use-case-desc">Create marketing content without expensive equipment</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create a 30-second video showcasing fresh bread being made for my bakery"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Make a product demo video of someone using my handmade skincare products"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Social Media Content</div>
+                        <div class="use-case-desc">TikTok videos, Instagram reels, engaging content</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create a before-and-after home renovation video for my Instagram"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Make a satisfying cleaning video for TikTok with calming music"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Educational & Training Content</div>
+                        <div class="use-case-desc">How-to videos, explainers, training materials</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create a video showing how to change a car tyre step by step"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Make an animated video explaining compound interest for beginners"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ElevenLabs Card -->
+            <div class="ai-card elevenlabs" data-ai="elevenlabs">
+                <div class="ai-header">
+                    <div class="ai-icon">🎤</div>
+                    <div>
+                        <div class="ai-name">ElevenLabs</div>
+                    </div>
+                </div>
+                <div class="ai-tagline">Best for: Voice Overs, Audio Content, Podcasts & Accessibility</div>
+                <button class="expand-btn" onclick="toggleUseCase('elevenlabs')">Explore ElevenLabs →</button>
+                
+                <div class="use-cases" id="elevenlabs-cases">
+                    <div class="use-case">
+                        <div class="use-case-title">Video Narration & Voice Overs</div>
+                        <div class="use-case-desc">Professional voice overs without hiring actors</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create a professional voice over for my estate agent property tour videos"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Record a friendly voice over for my children's bedtime story app"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Podcast & Audio Content</div>
+                        <div class="use-case-desc">Create audio content, intros, advertisements</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Generate a podcast intro for 'Money Matters' personal finance show"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create an audio advertisement for my local gym membership deals"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Accessibility & Learning</div>
+                        <div class="use-case-desc">Convert text to speech, language learning, accessibility</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Convert my written blog posts to audio for visually impaired readers"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create audio flashcards for learning French pronunciation"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Perplexity Card -->
+            <div class="ai-card perplexity" data-ai="perplexity">
+                <div class="ai-header">
+                    <div class="ai-icon">🔬</div>
+                    <div>
+                        <div class="ai-name">Perplexity</div>
+                    </div>
+                </div>
+                <div class="ai-tagline">Best for: Deep Research, Citations, Academic Questions & Fact-Checking</div>
+                <button class="expand-btn" onclick="toggleUseCase('perplexity')">Explore Perplexity →</button>
+                
+                <div class="use-cases" id="perplexity-cases">
+                    <div class="use-case">
+                        <div class="use-case-title">Medical & Health Research</div>
+                        <div class="use-case-desc">Research health conditions with proper citations</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Research the latest treatment options for Type 2 diabetes with sources"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "What are the side effects of taking ibuprofen long-term? Include studies"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Legal & Rights Research</div>
+                        <div class="use-case-desc">Understand your rights, laws, regulations with citations</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "What are my rights as a tenant in England if my landlord wants to evict me?"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Research UK employment law about being made redundant - what compensation?"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Investment & Financial Research</div>
+                        <div class="use-case-desc">Research investments, markets, financial decisions</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Research the performance of index funds vs active funds over 20 years"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "What are the tax implications of selling my rental property in 2024?"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LLM Notebook Card -->
+            <div class="ai-card llm" data-ai="llm">
+                <div class="ai-header">
+                    <div class="ai-icon">📊</div>
+                    <div>
+                        <div class="ai-name">LLM Notebook</div>
+                    </div>
+                </div>
+                <div class="ai-tagline">Best for: Data Analysis, Custom Charts, Calculations & Business Intelligence</div>
+                <button class="expand-btn" onclick="toggleUseCase('llm')">Explore LLM Notebook →</button>
+                
+                <div class="use-cases" id="llm-cases">
+                    <div class="use-case">
+                        <div class="use-case-title">Business Data Analysis</div>
+                        <div class="use-case-desc">Analyse sales, customers, performance with visualisations</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Analyse my restaurant's sales data and show which dishes are most profitable"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Create a dashboard showing my shop's monthly revenue trends and predictions"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Personal Finance Tracking</div>
+                        <div class="use-case-desc">Analyse spending, create budgets, track financial goals</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Analyse my bank statements and categorise spending with charts"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Calculate compound interest on my savings with different scenarios"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="use-case">
+                        <div class="use-case-title">Property & Investment Analysis</div>
+                        <div class="use-case-desc">Analyse property investments, rental yields, market trends</div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Calculate rental yield and ROI for this property investment"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <div class="prompt-example" onclick="copyPrompt(this)">
+                            "Analyse house price trends in Manchester over the last 5 years"
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-access">
+            <h2>🚀 Quick Scenario Guide - Click to See Which AI to Use</h2>
+            <div class="scenario-grid">
+                <div class="scenario" onclick="highlightAI('claude')">
+                    <div class="scenario-title">Write professional email</div>
+                    <div class="scenario-ai">👉 Use Claude</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('chatgpt')">
+                    <div class="scenario-title">Create a family budget</div>
+                    <div class="scenario-ai">👉 Use ChatGPT</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('gemini')">
+                    <div class="scenario-title">What's this in my photo?</div>
+                    <div class="scenario-ai">👉 Use Gemini</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('dalle')">
+                    <div class="scenario-title">Create a business logo</div>
+                    <div class="scenario-ai">👉 Use DALL-E</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('llm')">
+                    <div class="scenario-title">Analyse my sales data</div>
+                    <div class="scenario-ai">👉 Use LLM Notebook</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('perplexity')">
+                    <div class="scenario-title">Research my legal rights</div>
+                    <div class="scenario-ai">👉 Use Perplexity</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('sora')">
+                    <div class="scenario-title">Make product demo video</div>
+                    <div class="scenario-ai">👉 Use Sora</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('elevenlabs')">
+                    <div class="scenario-title">Add voice to my video</div>
+                    <div class="scenario-ai">👉 Use ElevenLabs</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('claude')">
+                    <div class="scenario-title">Build a simple website</div>
+                    <div class="scenario-ai">👉 Use Claude</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('chatgpt')">
+                    <div class="scenario-title">Dating profile advice</div>
+                    <div class="scenario-ai">👉 Use ChatGPT</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('gemini')">
+                    <div class="scenario-title">Find cheapest insurance</div>
+                    <div class="scenario-ai">👉 Use Gemini</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('dalle')">
+                    <div class="scenario-title">Birthday party invitation</div>
+                    <div class="scenario-ai">👉 Use DALL-E</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('perplexity')">
+                    <div class="scenario-title">Research health condition</div>
+                    <div class="scenario-ai">👉 Use Perplexity</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('sora')">
+                    <div class="scenario-title">Create social media content</div>
+                    <div class="scenario-ai">👉 Use Sora</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('claude')">
+                    <div class="scenario-title">Cancel gym membership</div>
+                    <div class="scenario-ai">👉 Use Claude</div>
+                </div>
+                
+                <div class="scenario" onclick="highlightAI('chatgpt')">
+                    <div class="scenario-title">Should I remortgage?</div>
+                    <div class="scenario-ai">👉 Use ChatGPT</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>💡 Pro Tip: Combine multiple AIs for better results! Research with Perplexity → Plan with ChatGPT → Write with Claude → Create visuals with DALL-E</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">
+                <a href="https://butterfly-ai.co.uk/" target="_blank" style="color: white; text-decoration: none;">© 2024 Butterfly AI</a> | 
+                <a href="https://butterfly-ai.co.uk/contact" target="_blank" style="color: white; text-decoration: none;">Get AI Help</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">Prompt copied to clipboard!</div>
+
+    <script>
+        function toggleUseCase(aiName) {
+            const useCase = document.getElementById(aiName + '-cases');
+            
+            // Just toggle current use case - don't close others
+            useCase.classList.toggle('active');
+            
+            // Update button text
+            const btn = useCase.previousElementSibling;
+            if (useCase.classList.contains('active')) {
+                btn.innerHTML = 'Hide Details ↑';
+            } else {
+                btn.innerHTML = `Explore ${aiName.charAt(0).toUpperCase() + aiName.slice(1)} →`;
+            }
+        }
+
+        function copyPrompt(element) {
+            const text = element.textContent.replace('Copy', '').trim();
+            navigator.clipboard.writeText(text).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        function highlightAI(aiName) {
+            // Remove previous highlights
+            document.querySelectorAll('.ai-card').forEach(card => {
+                card.style.transform = '';
+                card.style.boxShadow = '';
+            });
+            
+            // Highlight the selected AI
+            const aiCard = document.querySelector(`.ai-card.${aiName}`);
+            if (aiCard) {
+                aiCard.style.transform = 'scale(1.05)';
+                aiCard.style.boxShadow = '0 25px 50px rgba(0,0,0,0.3)';
+                
+                // Auto-open the use case
+                const useCase = document.getElementById(aiName + '-cases');
+                if (useCase) {
+                    useCase.classList.add('active');
+                    
+                    // Update button
+                    const btn = useCase.previousElementSibling;
+                    btn.innerHTML = 'Hide Details ↑';
+                }
+                
+                // Scroll to the card
+                aiCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Reset highlight after 3 seconds
+                setTimeout(() => {
+                    aiCard.style.transform = '';
+                    aiCard.style.boxShadow = '';
+                }, 3000);
+            }
+        }
+
+        // Add click handlers to AI cards
+        document.querySelectorAll('.ai-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('expand-btn') && !e.target.classList.contains('copy-btn')) {
+                    const aiName = card.dataset.ai;
+                    toggleUseCase(aiName);
+                }
+            });
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.scenario').forEach(scenario => {
+            scenario.addEventListener('mouseenter', () => {
+                scenario.style.background = 'linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)';
+            });
+            
+            scenario.addEventListener('mouseleave', () => {
+                scenario.style.background = 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)';
+            });
+        });
+    </script>
+</body>
+</html>
