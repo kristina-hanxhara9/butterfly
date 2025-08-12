@@ -266,7 +266,7 @@
 
         .ai-header {
             display: flex;
-            align-items: centre;
+            align-items: center;
             margin-bottom: 15px;
         }
 
@@ -276,21 +276,21 @@
             border-radius: 12px;
             margin-right: 12px;
             display: flex;
-            align-items: centre;
-            justify-content: centre;
+            align-items: center;
+            justify-content: center;
             font-size: 20px;
-            colour: white;
+            color: white;
             background: var(--accent-color);
         }
 
         .ai-name {
             font-size: 1.4rem;
             font-weight: 700;
-            colour: #333;
+            color: #333;
         }
 
         .ai-tagline {
-            colour: #666;
+            color: #666;
             font-size: 0.85rem;
             margin-bottom: 15px;
             font-style: italic;
@@ -320,22 +320,22 @@
 
         .use-case-title {
             font-weight: 600;
-            colour: #333;
+            color: #333;
             margin-bottom: 6px;
             display: flex;
-            align-items: centre;
+            align-items: center;
             font-size: 0.9rem;
         }
 
         .use-case-title::before {
             content: '→';
             margin-right: 6px;
-            colour: var(--accent-color);
+            color: var(--accent-color);
             font-weight: bold;
         }
 
         .use-case-desc {
-            colour: #555;
+            color: #555;
             font-size: 0.8rem;
             line-height: 1.4;
             margin-bottom: 8px;
@@ -362,7 +362,7 @@
             top: 3px;
             right: 3px;
             background: var(--accent-color);
-            colour: white;
+            color: white;
             border: none;
             border-radius: 3px;
             padding: 2px 6px;
@@ -378,7 +378,7 @@
 
         .expand-btn {
             background: var(--accent-color);
-            colour: white;
+            color: white;
             border: none;
             border-radius: 20px;
             padding: 10px 20px;
@@ -404,14 +404,14 @@
         }
 
         .industry-solutions h2 {
-            colour: #333;
+            color: #333;
             margin-bottom: 10px;
-            text-align: centre;
+            text-align: center;
         }
 
         .industry-solutions p {
-            colour: #666;
-            text-align: centre;
+            color: #666;
+            text-align: center;
             margin-bottom: 25px;
             font-size: 1.1rem;
         }
@@ -448,13 +448,13 @@
         }
 
         .industry-card h3 {
-            colour: #333;
+            color: #333;
             margin-bottom: 15px;
             font-size: 1.3rem;
         }
 
         .industry-content p {
-            colour: #555;
+            color: #555;
             margin-bottom: 8px;
             text-align: left;
             font-size: 0.9rem;
@@ -462,7 +462,7 @@
         }
 
         .industry-content strong {
-            colour: var(--accent-color);
+            color: var(--accent-color);
         }
 
         .quick-access {
@@ -474,9 +474,9 @@
         }
 
         .quick-access h2 {
-            colour: #333;
+            color: #333;
             margin-bottom: 20px;
-            text-align: centre;
+            text-align: center;
         }
 
         .scenario-grid {
@@ -489,7 +489,7 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             border-radius: 10px;
             padding: 15px;
-            text-align: centre;
+            text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -502,12 +502,12 @@
         .scenario-title {
             font-weight: 600;
             margin-bottom: 6px;
-            colour: #333;
+            color: #333;
             font-size: 0.85rem;
         }
 
         .scenario-ai {
-            colour: #666;
+            color: #666;
             font-size: 0.8rem;
         }
 
@@ -516,7 +516,7 @@
             top: 20px;
             right: 20px;
             background: #28a745;
-            colour: white;
+            color: white;
             padding: 12px 20px;
             border-radius: 8px;
             opacity: 0;
@@ -1683,10 +1683,15 @@
         });
         
         // Check if user has already submitted (optional - stores in localStorage)
-        if (localStorage.getItem('butterflyAI_guideAccess')) {
-            document.getElementById('emailOverlay').style.display = 'none';
-            document.getElementById('mainContent').style.display = 'block';
-        }
+        // Uncomment the lines below if you want to remember users who already submitted
+        // if (localStorage.getItem('butterflyAI_guideAccess')) {
+        //     document.getElementById('emailOverlay').style.display = 'none';
+        //     document.getElementById('mainContent').style.display = 'block';
+        // }
+        
+        // Debug function: Clear localStorage (for testing)
+        // Uncomment this line and refresh page to reset form:
+        // localStorage.clear();
     </script>
 </body>
 </html>
