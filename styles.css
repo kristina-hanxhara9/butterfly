@@ -716,11 +716,12 @@ nav a:hover::after {
 /* Services Section - Single Row Layout */
 .service-categories-single-row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    align-items: stretch;
 }
 
-/* Services Section - Image-based styling */
+/* Services Section - Enhanced styling for better alignment */
 .service-categories-single-row .service-category {
     background: white;
     border-radius: 20px;
@@ -732,53 +733,84 @@ nav a:hover::after {
     position: relative;
     border-top: 4px solid var(--accent);
     text-align: center;
-    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-categories-single-row .service-category:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 .service-categories-single-row .category-header {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     margin-bottom: 1.5rem;
 }
 
 .service-categories-single-row .category-icon {
-    width: 100px; /* Reduced from 120px */
-    height: 70px; /* Kept the same */
+    width: 80px;
+    height: 80px;
     border-radius: 15px;
     background: var(--gradient-orange);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem; /* Reduced from 3rem */
+    font-size: 2.5rem;
     transition: var(--transition);
-    margin: 0 auto 1rem;
+    margin: 0 auto;
     box-shadow: 0 8px 25px rgba(232, 101, 75, 0.25);
-    background-size: cover;
-    background-position: center;
+}
+
+.service-categories-single-row .service-category:hover .category-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.service-categories-single-row .category-header h3 {
+    font-family: var(--heading-font);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0;
+    text-align: center;
+}
+
+.service-categories-single-row .businesses {
+    color: rgba(31, 37, 69, 0.7);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-weight: 500;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.service-categories-single-row .specific-features ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.service-categories-single-row .specific-features li {
+    padding: 0.5rem 0;
+    color: rgba(31, 37, 69, 0.8);
     position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
 }
 
-/* Alternative: Use background images for each service type */
-.service-categories-single-row .service-category:nth-child(1) .category-icon {
-    background: linear-gradient(135deg, rgba(232, 101, 75, 0.9), rgba(248, 158, 123, 0.9)), 
-                url('./images/small-business.png');
-    background-size: cover;
-    background-position: center;
-}
-
-.service-categories-single-row .service-category:nth-child(2) .category-icon {
-    background: linear-gradient(135deg, rgba(232, 101, 75, 0.8), rgba(248, 158, 123, 0.8)), 
-                var(--gradient-orange);
-}
-
-.service-categories-single-row .service-category:nth-child(3) .category-icon {
-    background: linear-gradient(135deg, rgba(232, 101, 75, 0.8), rgba(248, 158, 123, 0.8)), 
-                var(--gradient-orange);
-}
-
-.service-categories-single-row .service-category:nth-child(4) .category-icon {
-    background: linear-gradient(135deg, rgba(232, 101, 75, 0.8), rgba(248, 158, 123, 0.8)), 
-                var(--gradient-orange);
+.service-categories-single-row .specific-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
 }
 
 /* SERVICES SECTION */
